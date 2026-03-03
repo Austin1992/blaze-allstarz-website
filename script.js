@@ -501,3 +501,24 @@ if (homeShowcase) {
         homeShowcase.appendChild(activityItem);
     });
 }
+
+
+
+ document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Show a "Sending..." state on the button
+    const btn = event.target.querySelector('button');
+    const originalText = btn.innerText;
+    btn.innerText = 'Sending...';
+
+    emailjs.sendForm('service_l32lavj', 'template_ylxh35f', this)
+        .then(function() {
+            alert('Message Sent Successfully! Blaze AllStarz will contact you soon.');
+            event.target.reset();
+            btn.innerText = originalText;
+        }, function(error) {
+            alert('Failed to send... please check your internet connection.');
+            btn.innerText = originalText;
+        });
+ });
