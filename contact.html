@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Blaze | Blaze All Stars</title>
+    <link rel="stylesheet" href="stylesheet/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo-text">BLAZE ALL STARZ FC</div>
+        <div class="menu-btn" id="menuBtn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="contact.html" class="join-btn">JOIN US</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header contact-hero">
+        <h1>Join the Family</h1>
+        <p>Step onto the pitch with <strong>Executives de Bas</strong>.</p>
+    </header>
+
+    <main class="container">
+        <div class="contact-wrapper">
+            <section class="form-section">
+                <h2 class="section-title">Membership Application</h2>
+                <form id="membershipForm" class="blaze-form">
+                    <div class="input-group">
+                        <input type="text" id="fullName" placeholder="Full Name" required>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <select id="position" required>
+                        <option value="" disabled selected>Preferred Position</option>
+                        <option value="forward">Forward</option>
+                        <option value="midfield">Midfield</option>
+                        <option value="defense">Defense</option>
+                        <option value="keeper">Goalkeeper</option>
+                        <option value="fan">Supporter / Non-Player</option>
+                    </select>
+
+                    <textarea id="message" placeholder="Why do you want to join Blaze All Stars?" rows="4"></textarea>
+
+                    <div class="pledge-box">
+                        <h3>The Brother's Keeper Pledge</h3>
+                        <p>To join, you must agree to our 3 Golden Rules:</p>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="pledge-check" data-rule="Respect"> 
+                            I will show <strong>Respect</strong> for one another.
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="pledge-check" data-rule="Fair Play"> 
+                            I will uphold the spirit of <strong>Fair Play</strong>.
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="pledge-check" data-rule="Keeper"> 
+                            I will always <strong>Be My Brother's Keeper</strong>.
+                        </label>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="submit-disabled" disabled>SEND APPLICATION</button>
+                </form>
+            </section>
+
+            <aside class="contact-info">
+                <div class="info-card">
+                    <h3>Visit Us</h3>
+                    <p><strong>Silver Blaze Clubhouse</strong></p>
+                    <p>Every Saturday post-training.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Contact</h3>
+                    <p>General Enquiries: Blazeallstars50@gmail.com</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+
+ <footer class="main-footer">
+    <div class="footer-glow"></div>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="images/BAS-Logo.jpg" alt="Blaze Logo" class="footer-logo">
+            <div class="slogan-wrapper">
+                <p class="unity-slogan">
+                    "Let us do more of the things that bind us together, than the things that separates us."
+                </p>
+                <span class="motto-tagline">Blaze AllStarz • Be Your Brother's Keeper</span>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <div class="social-cluster">
+               
+                <a href="https://www.facebook.com/share/g/1GSTZorALy/?mibextid=wwXIfr" class="social-pill" target="_blank">Facebook</a>
+               
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-legal">
+        <p>&copy; 2026 BLAZE ALLSTARZ FC. All Rights Reserved. <span>Executives de Bas</span></p>
+    </div>
+  </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

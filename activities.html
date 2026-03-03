@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities | Blaze All Stars</title>
+    <link rel="stylesheet" href="stylesheet/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <div class="logo-text">BLAZE ALL STARZ FC</div>
+    
+    <div class="menu-btn" id="menuBtn">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html" class="join-btn">JOIN US</a></li>
+    </ul>
+  </nav>
+
+    <header class="page-header activity-hero">
+        <h1>The Wall of Fame</h1>
+        <p>Capturing every goal, tackle, and meeting at <strong>Silver Blaze</strong></p>
+    </header>
+
+  <main class="container">
+     <section class="activities-header">
+        <h2 class="section-title">CLUB ACTIVITIES & VAULT</h2>
+        <p>The history and journey of the Blaze AllStarz family.</p>
+     </section>
+
+    <div class="activities-grid" id="activitiesVault"></div>
+ </section>
+
+
+
+  <div id="adminPanel" class="admin-overlay" style="display:none;">
+    <div class="admin-glass-card">
+        <div class="admin-header">
+            <div class="admin-title">
+                <span class="pulse-icon"></span>
+                <h2>BLAZE COMMAND CENTER</h2>
+            </div>
+            <button onclick="closeAdmin()" class="close-admin">&times;</button>
+        </div>
+
+        <div class="admin-body">
+            <div class="input-group">
+                <label>FILE PATH</label>
+                <input type="text" id="imgUrl" placeholder="e.g., images/MATCH_DAY.JPG">
+            </div>
+            
+            <div class="input-group">
+                <label>ACTIVITY TITLE</label>
+                <input type="text" id="imgTitle" placeholder="Enter Title">
+            </div>
+
+            <div class="input-group">
+                <label>DESCRIPTION</label>
+                <textarea id="imgDesc" placeholder="Briefly describe the event..."></textarea>
+            </div>
+            <div class="input-group">
+               <label>EVENT DATE</label>
+               <input type="date" id="eventDate">
+           </div>
+
+  <div class="input-group checkbox-group">
+    <input type="checkbox" id="featureOnHome">
+    <label for="featureOnHome" style="display:inline; margin-left: 10px; color: #fff;">FEATURE ON HOMEPAGE</label>
+  </div>
+      
+            <button onclick="publishContent()" class="publish-btn">
+                <span>PUBLISH TO VAULT</span>
+                <div class="btn-flare"></div>
+            </button>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+        <section class="gallery-section">
+            <h2 class="section-title">Latest Activities</h2>
+            <div class="gallery-grid" id="mainGallery">
+                <div class="gallery-item"><img src="images/Chairman-Emeretus.jpg" alt="Training"><P>Chairman Emeritus Award</P></div>
+                <div class="gallery-item"><img src="images/MOTM-Award.jpg" alt="Match"><p>MOTM Award</p></div>
+                <div class="gallery-item"><img src="images/winning-team.jpg" alt="Victory"><p>BAS Winning Team</p></div>
+                <div class="gallery-item"><video src="videos/lineup-clip.mp4" type="video/mp4" controls></video><p>Match Line-Up Video</p></div>
+            </div>
+        </section>
+    </main>
+
+  <footer class="main-footer">
+    <div class="footer-glow"></div>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="images/BAS-Logo.jpg" alt="Blaze Logo" class="footer-logo">
+            <div class="slogan-wrapper">
+                <p class="unity-slogan">
+                    "Let us do more of the things that bind us together, than the things that separates us."
+                </p>
+                <span class="motto-tagline">Blaze AllStarz • Be Your Brother's Keeper</span>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <div class="social-cluster">
+               
+                <a href="https://www.facebook.com/share/g/1GSTZorALy/?mibextid=wwXIfr" class="social-pill" target="_blank">Facebook</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-legal">
+        <p>&copy; 2026 BLAZE ALLSTARZ FC. All Rights Reserved. <span>Executives de Bas</span></p>
+    </div>
+  </footer>
+    <script src="script.js"></script>
+</body>
+</html>

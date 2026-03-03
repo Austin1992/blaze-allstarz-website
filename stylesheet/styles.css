@@ -1,0 +1,1610 @@
+ :root {
+            --primary-red: #e62222;
+            --dark-bg: #0f0f0f;
+            --shield-gray: #2d2d2d;
+            --text-white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-links {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0,0,0,0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-red);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            padding: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+
+        /* Navigation Active State */
+.nav-links li a.active {
+    color: var(--primary-red);
+    border-bottom: 2px solid var(--primary-red);
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Ensure the Join Us button remains solid even if active */
+.nav-links li a.join-btn.active {
+    background-color: #fff;
+    color: var(--primary-red) !important;
+    border-bottom: none;
+}
+
+/* Hover effect for non-active links */
+.nav-links li a:hover:not(.active) {
+    color: var(--silver);
+    transition: 0.3s ease;
+}
+
+        .join-btn {
+            background: var(--primary-red);
+            padding: 10px 25px;
+            border-radius: 5px;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=2000'); /* Placeholder stadium bg */
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* --- Slogan Trigger Section --- */
+        .slogan-box {
+            background: var(--shield-gray);
+            padding: 30px;
+            border-left: 5px solid var(--primary-red);
+            margin: 40px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slogan-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Content Sections --- */
+        section {
+            padding: 80px 10%;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .rule-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .rule-card:hover {
+            border-color: var(--primary-red);
+            background: #222;
+        }
+
+        .rule-card i {
+            font-size: 2rem;
+            color: var(--primary-red);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* --- Gallery Placeholder --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery div {
+            background: #333;
+            height: 200px;
+            border-radius: 5px;
+        }
+
+        .gallery-item video {
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .gallery-item video:hover {
+            transform: scale(1.05);
+            border: 2px solid var(--primary-red);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for demo, usually a hamburger menu */
+            .hero h1 { font-size: 2.5rem; }
+            section { padding: 60px 5%; }
+        }
+
+
+
+
+
+
+
+        /* EVENTS PAGE */
+
+    :root {
+    --primary-red: #e62222;
+    --dark-bg: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --silver: #cccccc;
+    --text-white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    line-height: 1.6;
+}
+
+/* Nav Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background: #000;
+    border-bottom: 2px solid var(--primary-red);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-text { font-family: 'Oswald'; font-size: 1.5rem; color: var(--primary-red); font-weight: bold; }
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links li { margin-left: 20px; }
+.nav-links a { color: white; text-decoration: none; font-family: 'Oswald'; }
+
+.join-btn {
+    background: var(--primary-red);
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* Page UI */
+.page-header {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1500');
+    background-size: cover;
+}
+
+.page-header h1 { font-family: 'Oswald'; font-size: 3.5rem; text-transform: uppercase; }
+
+.container { padding: 60px 10%; }
+.section-title { font-family: 'Oswald'; font-size: 2rem; color: var(--primary-red); margin-bottom: 30px; text-transform: uppercase; }
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: grayscale(40%);
+    transition: 0.4s;
+}
+
+.gallery-item img:hover { filter: grayscale(0%); transform: scale(1.02); border: 2px solid var(--primary-red); }
+
+/* Events Card */
+.event-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    border: 1px solid #333;
+}
+
+.routine-info { flex: 1; min-width: 250px; }
+.countdown-wrapper { flex: 2; min-width: 280px; text-align: center; }
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.time-block span { display: block; font-size: 3rem; font-family: 'Oswald'; color: var(--primary-red); }
+
+footer { text-align: center; padding: 40px; border-top: 1px solid #222; margin-top: 40px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .page-header h1 { font-size: 2.5rem; }
+}
+
+
+
+/* Upload Section Specifics */
+.upload-section {
+    padding: 40px 0;
+}
+
+.upload-container {
+    background: #1a1a1a;
+    border: 2px dashed #444;
+    border-radius: 12px;
+    padding: 60px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.upload-container:hover {
+    border-color: var(--primary-red);
+    background: #222;
+}
+
+.upload-box .icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.upload-box h3 {
+    font-family: 'Oswald';
+    color: var(--primary-red);
+}
+
+/* Preview Grid for freshly uploaded items */
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.preview-card {
+    position: relative;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--primary-red);
+    animation: fadeIn 0.5s ease;
+}
+
+.preview-card img, .preview-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: #333;
+    margin: 60px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Admin Review UI */
+
+.preview-card.pending {
+    border: 3px solid #ffcc00 !important; /* Bright Gold for visibility */
+    position: relative;
+    background: #1a1a1a;
+    min-height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.status-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffcc00;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    z-index: 10;
+    font-weight: bold;
+    border: 1px solid #ffcc00;
+}
+
+/* Toast Notification Styles */
+.admin-toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-red);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: bottom 0.5s ease;
+    z-index: 1000;
+}
+
+.admin-toast.show {
+    bottom: 30px;
+}
+
+
+/* Admin Panel Tab */
+#adminPanel {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.admin-tab {
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    font-family: 'Oswald', sans-serif;
+}
+
+.admin-tab button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Highlight the Drop Zone in Admin Mode */
+.admin-mode-on .upload-container {
+    border-color: #28a745;
+    background: rgba(40, 167, 69, 0.05);
+}
+
+/* Ensure actions are visible */
+.admin-actions {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    background: rgba(0,0,0,0.7);
+    padding: 5px;
+}
+
+
+
+/* About Page Specifics */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.shield-display {
+    width: 100%;
+    max-width: 300px;
+    filter: drop-shadow(0 0 20px rgba(230, 34, 34, 0.4));
+}
+
+.leader-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.leader-card {
+    background: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border-bottom: 3px solid var(--primary-red);
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+/* Admin Controls UI */
+.admin-actions {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 5px;
+}
+
+.approve-btn { 
+  background: #28a745; 
+  color: white; border: none; 
+  padding: 5px 10px; 
+  border-radius: 3px;
+  cursor: pointer; font-size: 0.8rem; 
+}
+.reject-btn { 
+  background: var(--primary-red); 
+  color: white; 
+  border: none; 
+  padding: 5px 10px; 
+  border-radius: 3px; 
+  cursor: pointer; 
+  font-size: 0.8rem; 
+}
+
+
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .leader-grid { grid-template-columns: 1fr; }
+}
+
+
+
+/* Desktop: Hide Menu Button */
+.menu-btn {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.menu-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-white);
+    transition: 0.4s;
+}
+
+/* Mobile Responsive (768px and below) */
+@media (max-width: 768px) {
+   /* Show the hamburger icon */
+    .menu-btn {
+        display: flex;
+        z-index: 1002; /* Ensure it stays above the sliding menu */
+    }
+
+     /* Ensure the list is prepared for the slide-in */
+    .nav-links {
+        display: flex; /* Change from 'none' to 'flex' */
+        position: fixed;
+        right: -100%; 
+        top: 0; /* Let it cover the full height or start from nav */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(15, 15, 15, 0.98); /* Solid dark theme */
+        width: 70%; /* Slide out part-way or 100% for full coverage */
+        height: 100vh;
+        transition: 0.4s ease-in-out;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        border-left: 2px solid var(--primary-red);
+    }
+
+    /* This is the class the JS toggles */
+    .nav-links.active {
+        right: 0; /* Slide in menu */
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    /* Animate Hamburger into an 'X' when active */
+    .menu-btn.active .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+    .menu-btn.active .bar:nth-child(2) { opacity: 0; }
+    .menu-btn.active .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+}
+
+
+
+/* Contact Page Styles */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.blaze-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.blaze-form input, .blaze-form select, .blaze-form textarea {
+    padding: 15px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.pledge-box {
+    background: #111;
+    padding: 20px;
+    border: 1px solid var(--primary-red);
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.pledge-box h3 { font-family: 'Oswald'; color: var(--primary-red); margin-bottom: 10px; }
+
+.checkbox-label {
+    display: block;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.submit-disabled {
+    background: #444 !important;
+    cursor: not-allowed !important;
+}
+
+#submitBtn {
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-family: 'Oswald';
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper { grid-template-columns: 1fr; }
+}
+
+
+
+
+/* --- Footer Styling --- */
+.main-footer {
+    position: relative;
+    background: #050505;
+    padding: 100px 5% 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+/* Subtle Red Atmosphere at the top of the footer */
+.footer-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+    box-shadow: 0 0 30px rgba(230, 34, 34, 0.4);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+
+.footer-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    transition: 0.4s;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.unity-slogan {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    max-width: 800px;
+    line-height: 1.4;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.motto-tagline {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Social Pills - Modern Minimalist */
+.social-cluster {
+    display: flex;
+    gap: 20px;
+}
+
+.social-pill {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    border: 1px solid #222;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.social-pill:hover {
+    color: #fff;
+    border-color: var(--primary-red);
+    background: rgba(230, 34, 34, 0.05);
+}
+
+.footer-legal {
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px solid #111;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #444;
+    letter-spacing: 1px;
+}
+
+.footer-legal span {
+    color: #888;
+    margin-left: 10px;
+}
+
+/* --- Responsive Fix --- */
+@media (max-width: 768px) {
+    .unity-slogan {
+        font-size: 1.4rem;
+        padding: 0 10px;
+    }
+    
+    .social-cluster {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+ /* --- About Page Specifics --- */
+.leader-grid {
+    display: grid;
+    /* This creates as many columns as will fit, at least 200px wide each */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.leader-card {
+    background: #151515;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #222;
+    border-bottom: 3px solid var(--primary-red);
+    transition: transform 0.3s ease;
+}
+
+.leader-card:hover {
+    transform: translateY(-10px);
+    background: #1a1a1a;
+}
+
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    background: #000;
+    border: 2px solid var(--primary-red);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures faces aren't stretched */
+}
+
+.placeholder-logo {
+    width: 60%; /* Smaller so it sits nicely in the middle */
+    height: auto;
+    opacity: 0.5;
+}
+
+
+/* Preamble & Intro Styling */
+.preamble-box {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 3px solid var(--primary-red);
+}
+
+/* Horizontal Aims Layout */
+.aims-horizontal-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.aim-card {
+    background: #111;
+    padding: 20px;
+    border-top: 2px solid var(--primary-red);
+    min-height: 160px;
+}
+
+.aim-num {
+    display: block;
+    color: var(--primary-red);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+    background: #0a0a0a;
+    padding: 50px;
+    border-radius: 15px;
+    margin: 40px 0;
+}
+
+.motto-chain {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.highlight {
+    color: var(--primary-red);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+}
+
+/* Values & Highlights */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.highlighted-box {
+    border: 1px solid var(--primary-red);
+    background: linear-gradient(145deg, #151515, #000);
+}
+
+/* Responsive Handling */
+@media (max-width: 1024px) {
+    .aims-horizontal-grid {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 20px;
+    }
+    .aim-card { min-width: 250px; flex: 0 0 auto; }
+    .motto-chain { flex-direction: column; gap: 20px; }
+    .values-grid { grid-template-columns: 1fr; }
+}
+
+.central-logo {
+    width: 120px;
+    height: auto;
+    border-radius: 50%; /* If your logo is circular */
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    background: radial-gradient(circle, rgba(230, 34, 34, 0.2) 0%, transparent 70%);
+    transition: all 0.5s ease;
+    filter: grayscale(30%);
+}
+
+.central-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05) rotate(5deg);
+    border-color: var(--primary-red);
+    box-shadow: 0 0 30px rgba(230, 34, 34, 0.4);
+}
+
+
+/* Container for the 3 boxes */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.value-box {
+    position: relative;
+    background: #111; /* Deep Black */
+    padding: 40px 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #222; /* Subtle dark border */
+}
+
+/* The Green Dot Styling */
+.bullet-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #00ff00;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.value-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.value-box p {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: 0.3s;
+}
+
+/* THE PREMIUM HOVER EFFECT */
+.value-box:hover {
+    background: #161616;
+    transform: translateY(-10px);
+    border-color: var(--primary-red); /* Reveal red border */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.value-box:hover h3 {
+    color: var(--primary-red); /* Title turns red on hover */
+}
+
+.value-box:hover p {
+    color: #eee; /* Text becomes brighter */
+}
+
+/* Subtle Red Glow behind the card on hover */
+.value-box::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at top right, rgba(230, 34, 34, 0.05), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.value-box:hover::after {
+    opacity: 1;
+}
+
+.exec-intro {
+    padding: 80px 0 40px; /* More space above and below */
+    text-align: center;
+}
+
+.exec-intro .section-title {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.exec-intro p {
+    font-size: 1.1rem;
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+
+/* Container Spacing */
+.premium-mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 80px auto;
+    max-width: 1100px;
+}
+
+/* Base Card Styling */
+.mv-card {
+    position: relative;
+    background: linear-gradient(145deg, #111, #080808);
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 50px 40px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Vertical Red Accent Bar */
+.mv-accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #333; /* Dark by default */
+    transition: 0.4s;
+}
+
+/* Tag (e.g., "The Goal") */
+.mv-tag {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.7;
+}
+
+.mv-card h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.mv-card p {
+    color: #999;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* --- PREMIUM HOVER EFFECTS --- */
+
+.mv-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(230, 34, 34, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    background: #141414;
+}
+
+/* Reveal the Red Accent on Hover */
+.mv-card:hover .mv-accent {
+    background: var(--primary-red);
+    box-shadow: 2px 0 15px var(--primary-red);
+}
+
+.mv-card:hover h2 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.mv-card:hover p {
+    color: #eee;
+}
+
+/* Responsive Fix */
+@media (max-width: 900px) {
+    .premium-mission-vision {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+}
+
+
+/* --- Global Container Fix --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- Premium Grid (Values & Mission/Vision) --- */
+.values-grid, 
+.premium-mv-container {
+    display: grid;
+    /* Auto-fit magic: stacks when less than 320px wide */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px;
+    margin: 50px 0;
+}
+
+/* --- Premium Card Styling --- */
+.value-box, .mv-card {
+    position: relative;
+    background: #0f0f0f;
+    padding: 40px 30px;
+    border-radius: 15px;
+    border: 1px solid #222; /* Minimal dark border */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- The "Ignition" Hover Effect --- */
+.value-box:hover, .mv-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary-red);
+    box-shadow: 0 20px 40px rgba(230, 34, 34, 0.15);
+    background: #141414;
+}
+
+/* Reveals a subtle red glow from the bottom on hover */
+.value-box::before, .mv-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 4px;
+    background: var(--primary-red);
+    transform: scaleX(0);
+    transition: 0.4s ease;
+}
+
+.value-box:hover::before, .mv-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* --- Green Dot Glow (Responsive size) --- */
+.bullet-icon {
+    width: 10px;
+    height: 10px;
+    background: #39FF14; /* Neon Green */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.8);
+}
+
+/* --- Typography Adjustments --- */
+.value-box h3, .mv-card h2 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.value-box p, .mv-card p {
+    color: #999;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* --- RESPONSIVE FIX FOR MOBILE --- */
+@media (max-width: 768px) {
+    .values-grid, .premium-mv-container {
+        grid-template-columns: 1fr; /* Force single column on mobile */
+        gap: 20px;
+    }
+    
+    .value-box, .mv-card {
+        padding: 30px 25px;
+        text-align: center; /* Better flow for mobile */
+    }
+    
+    .bullet-icon {
+        margin: 0 auto 20px; /* Center dot on mobile */
+    }
+}
+
+
+
+.unity-slogan {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #ffffff;
+    letter-spacing: 1px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+
+.join-the-family {
+    padding: 100px 0;
+    text-align: center;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+}
+
+.premium-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.premium-text {
+    color: #888;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* The Premium Button */
+.blaze-btn {
+    position: relative;
+    display: inline-block;
+    padding: 18px 45px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    background: #000;
+    border: 1px solid var(--primary-red);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.blaze-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* The Internal Glow */
+.btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--primary-red);
+    box-shadow: 0 0 50px 30px var(--primary-red);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+    z-index: 1;
+}
+
+/* Hover Interaction */
+.blaze-btn:hover {
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 25px rgba(230, 34, 34, 0.4);
+    transform: translateY(-3px);
+}
+
+.blaze-btn:hover .btn-glow {
+    width: 100px;
+    height: 100px;
+    opacity: 0.2;
+}
+
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.showcase-card {
+    position: relative;
+    border-radius: 15px; /* Matches your screenshot */
+    overflow: hidden;
+    background: #111;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    aspect-ratio: 4 / 3; /* Keeps all images the same size */
+}
+
+.media-container {
+    width: 100%;
+    height: 100%;
+}
+
+.showcase-card img, 
+.showcase-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s ease;
+}
+
+/* Hover Effect: Zoom image and show text */
+.showcase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(230, 34, 34, 0.2);
+}
+
+.showcase-card:hover img {
+    transform: scale(1.1);
+}
+
+.showcase-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.showcase-card:hover .showcase-overlay {
+    opacity: 1;
+}
+
+.showcase-overlay h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: var(--primary-red);
+}
+
+/* Add this to your showcase-card hover in style.css */
+.showcase-card:hover {
+    transform: translateY(-12px); /* Matches the 'lift' of your mission cards */
+    border: 1px solid var(--primary-red); /* Reveals the red border on hover */
+    box-shadow: 0 20px 40px rgba(230, 34, 34, 0.2);
+}
+
+
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.activity-card {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.activity-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-red);
+}
+
+.media-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+}
+
+.activity-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.activity-details {
+    padding: 20px;
+    position: relative;
+}
+
+.activity-details h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.activity-details p {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.delete-btn-small {
+    background: transparent;
+    color: #444;
+    border: 1px solid #222;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-btn-small:hover {
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+
+
+/* Full Screen Overlay */
+.admin-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.4s ease;
+}
+
+/* The Glass Card */
+.admin-glass-card {
+    background: rgba(20, 20, 20, 0.9);
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid rgba(230, 34, 34, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(230, 34, 34, 0.1);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-title h2 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.pulse-icon {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: #e62222;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 10px #e62222;
+    animation: pulse 1.5s infinite;
+}
+
+/* Inputs */
+.input-group { margin-bottom: 20px; }
+.input-group label {
+    display: block;
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    background: #000;
+    border: 1px solid #222;
+    padding: 12px;
+    color: #fff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #e62222;
+    outline: none;
+    box-shadow: 0 0 10px rgba(230, 34, 34, 0.2);
+}
+
+/* The Button */
+.publish-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e62222;
+    color: #fff;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.publish-btn:hover {
+    background: #ff2b2b;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(230, 34, 34, 0.4);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Update your existing activity-media class */
+.activity-media {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed from 'cover' to 'contain' to show the full logo/photo */
+    background: #000;    /* Adds a clean black background for letterboxing */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Ensure the wrapper is a perfect aspect ratio */
+.media-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Professional landscape ratio */
+    background: #050505;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #1a1a1a;
+}
+.activity-card {
+    background: linear-gradient(145deg, #0f0f0f, #050505);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.activity-card:hover {
+    border-color: rgba(230, 34, 34, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(230, 34, 34, 0.1);
+}
+
+.activity-details h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* Apply to both Activity and Showcase images */
+.activity-media, .showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed to 'contain' so logos aren't cropped */
+    background-color: #050505; /* Black bars if the image doesn't match the 16:9 ratio */
+    display: block;
+}
+
+/* Add a "Featured" badge in the Activity Vault so you know what's live on Home */
+.activity-card.is-featured {
+    border: 1px solid rgba(230, 34, 34, 0.6);
+    box-shadow: 0 0 15px rgba(230, 34, 34, 0.2);
+}
