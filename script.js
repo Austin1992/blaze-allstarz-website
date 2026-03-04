@@ -499,44 +499,46 @@ if (homeShowcase) {
 
 
  
- 
- // Countdown Timer Logic for Match Day
- function startMatchTimer() {
-    // 1. Set the date specifically for April 25, 2026
-    const matchDate = new Date("April 25, 2026 09:00:00").getTime();
+  // Countdown Timer Logic for Both Homepage and Events Page
+  function startCountdown() {
+    // 1. Target Date: April 25, 2026
+    const targetDate = new Date("April 25, 2026 16:00:00").getTime();
 
-    const timer = setInterval(function() {
+    const updateTimer = setInterval(() => {
+        // 2. Current Time (Updated every second)
         const now = new Date().getTime();
-        const distance = matchDate - now;
 
-        // 2. Math for 52 days
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
+        // 3. The Math
+        const difference = targetDate - now;
 
-        // 3. Update Homepage Elements
-        // We use IDs 'days', 'hours', 'minutes', 'seconds'
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = d;
-            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // 4. Updating the Homepage (Individual spans)
+        const dEl = document.getElementById("days");
+        if (dEl) {
+            dEl.innerText = days;
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
         }
 
-        // 4. Update Event Page Element (if you have the single box)
-        const eventBox = document.getElementById("countdown-timer");
-        if (eventBox) {
-            eventBox.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
+        // 5. Updating the Events Page (Single box)
+        const eventEl = document.getElementById("countdown-timer");
+        if (eventEl) {
+            eventEl.innerText = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
         }
 
-        if (distance < 0) {
-            clearInterval(timer);
-            if(eventBox) eventBox.innerText = "MATCH DAY!";
+        // If the countdown is finished
+        if (difference < 0) {
+            clearInterval(updateTimer);
+            if(eventEl) eventEl.innerText = "MATCH BEGUN!";
         }
     }, 1000);
 }
 
-// Start the timer once the page loads
-document.addEventListener('DOMContentLoaded', startMatchTimer);
-startMatchTimer();
+// Run the function as soon as the window loads
+window.onload = startCountdown;
