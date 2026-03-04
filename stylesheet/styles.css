@@ -673,7 +673,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #222; margin-t
     cursor: not-allowed !important;
 }
 
-#submitBtn {
+#submit-btn{
     background: var(--primary-red);
     color: white;
     border: none;
