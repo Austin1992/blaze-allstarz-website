@@ -538,37 +538,40 @@ if (homeShowcase) {
  });
 
 
-//events page - countdown timer to the big match
- function startMatchCountdown() {
-    // Set the date for the big game
-    const matchDate = new Date("April 25, 2026 16:00:00").getTime();
 
-    const timer = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = matchDate - now;
 
-        // Time calculations for days, hours, mins, secs
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
+ // This waits for the page to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    
+    function startMatchCountdown() {
+        const matchDate = new Date("April 25, 2026 16:00:00").getTime();
 
-        // Update the HTML spans
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = d.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
-        }
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = matchDate - now;
 
-        // If the countdown is finished
-        if (distance < 0) {
-            clearInterval(timer);
-            const container = document.querySelector('.countdown-container');
-            if(container) container.innerHTML = "<h2>MATCH DAY IS HERE!</h2>";
-        }
-    }, 1000);
-}
+            if (distance < 0) {
+                clearInterval(timer);
+                const container = document.querySelector('.countdown-container');
+                if(container) container.innerHTML = "<h2>MATCH DAY IS HERE!</h2>";
+                return;
+            }
 
-// IMPORTANT: You must call the function here!
-startMatchCountdown();
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Using optional chaining to prevent errors if IDs are missing
+            document.getElementById("days")?.innerText = d.toString().padStart(2, '0');
+            document.getElementById("hours")?.innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes")?.innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds")?.innerText = s.toString().padStart(2, '0');
+            
+            // Log to console so you can see it working in 'Inspect'
+            console.log("Timer ticking...", d, h, m, s);
+        }, 1000);
+    }
+
+    startMatchCountdown();
+});
