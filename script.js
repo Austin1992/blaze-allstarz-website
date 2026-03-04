@@ -500,46 +500,43 @@ if (homeShowcase) {
 
  
  
-
- function startGlobalCountdown() {
-    // Force the date to April 25, 2026, at 4:00 PM
-    const matchDate = new Date("April 25, 2026 16:00:00").getTime();
+ // Countdown Timer Logic for Match Day
+ function startMatchTimer() {
+    // 1. Set the date specifically for April 25, 2026
+    const matchDate = new Date("April 25, 2026 09:00:00").getTime();
 
     const timer = setInterval(function() {
-        const now = new Date().getTime(); // Today: March 4
+        const now = new Date().getTime();
         const distance = matchDate - now;
 
-        // If the date is invalid or passed, stop at 0
-        if (isNaN(distance) || distance < 0) {
-            clearInterval(timer);
-            return;
-        }
-
-        // The Math for 52 Days
+        // 2. Math for 52 days
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // UPDATE THE HOMEPAGE SPANS
-        // Check if the IDs exist before trying to change them
-        const dSpan = document.getElementById("days");
-        const hSpan = document.getElementById("hours");
-        const mSpan = document.getElementById("minutes");
-        const sSpan = document.getElementById("seconds");
+        // 3. Update Homepage Elements
+        // We use IDs 'days', 'hours', 'minutes', 'seconds'
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+        }
 
-        if (dSpan) dSpan.innerText = d;
-        if (hSpan) hSpan.innerText = h.toString().padStart(2, '0');
-        if (mSpan) mSpan.innerText = m.toString().padStart(2, '0');
-        if (sSpan) sSpan.innerText = s.toString().padStart(2, '0');
+        // 4. Update Event Page Element (if you have the single box)
+        const eventBox = document.getElementById("countdown-timer");
+        if (eventBox) {
+            eventBox.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
+        }
 
-        // UPDATE THE EVENTS PAGE BOX
-        const eventTimer = document.getElementById("countdown-timer");
-        if (eventTimer) {
-            eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
+        if (distance < 0) {
+            clearInterval(timer);
+            if(eventBox) eventBox.innerText = "MATCH DAY!";
         }
     }, 1000);
 }
 
-document.addEventListener('DOMContentLoaded', startGlobalCountdown);
-startGlobalCountdown(); // Start immediately on page load
+// Start the timer once the page loads
+document.addEventListener('DOMContentLoaded', startMatchTimer);
+startMatchTimer();
