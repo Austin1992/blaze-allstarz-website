@@ -566,3 +566,5 @@ if (homeShowcase) {
 }
 
 startMatchCountdown();
+
+initMatchTimer();
