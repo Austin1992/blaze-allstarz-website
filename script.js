@@ -511,55 +511,55 @@ function startCountdown() {
 }
 
 
- // 2. THE APPLICATION FORM (Validation + EmailJS)
-function initApplicationForm() {
+// 2. Initialize the form logic on page load
+document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
-    const btn = document.getElementById('submit-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const checkboxes = document.querySelectorAll('.pledge-check');
 
-    if (!contactForm || !btn) return;
-
-    contactForm.addEventListener('submit', function(event) {
-        // 1. Check if all Golden Rules are checked
-        const rule1 = document.getElementById('rule1').checked;
-        const rule2 = document.getElementById('rule2').checked;
-        const rule3 = document.getElementById('rule3').checked;
-
-        if (!rule1 || !rule2 || !rule3) {
-            event.preventDefault();
-            alert("You must agree to all 3 Golden Rules to join the family!");
-            return;
+    // 1. SAFETY CHECK: Only run if form exists on this page
+    if (contactForm && submitBtn) {
+        
+        // Function to toggle button based on checkboxes
+        function validateChecks() {
+            const allChecked = Array.from(checkboxes).every(c => c.checked);
+            submitBtn.disabled = !allChecked;
         }
 
-        event.preventDefault(); // Stop page refresh
+        checkboxes.forEach(box => {
+            box.addEventListener('change', validateChecks);
+        });
 
-        // UI State
-        btn.disabled = true;
-        btn.innerText = 'SENDING...';
+        // 2. FORM SUBMISSION
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitBtn.innerText = "SENDING...";
+            submitBtn.disabled = true;
 
-        // 2. The EmailJS Send
-        emailjs.sendForm('service_l32lavj', 'template_ylxh35f', this)
-            .then(() => {
-                btn.innerText = 'APPLICATION SENT!';
-                btn.style.backgroundColor = '#28a745';
-                contactForm.reset();
-                setTimeout(() => {
-                    btn.disabled = false;
-                    btn.innerText = 'SEND APPLICATION';
-                    btn.style.backgroundColor = '';
-                }, 5000);
-            })
-            .catch((error) => {
-                btn.disabled = false;
-                btn.innerText = 'RETRY SEND';
-                btn.style.backgroundColor = '#dc3545';
-                console.error('EmailJS Error:', error);
-            });
-    });
-}
+            emailjs.sendForm('service_l32lavj', 'template_ylxh35f', this)
+                .then(() => {
+                    submitBtn.innerText = "SENT SUCCESSFULLY!";
+                    submitBtn.style.backgroundColor = "#28a745";
+                    contactForm.reset();
+                    // Re-enable after 5s
+                    setTimeout(() => {
+                        submitBtn.innerText = "SEND APPLICATION";
+                        submitBtn.style.backgroundColor = "";
+                        validateChecks();
+                    }, 5000);
+                })
+                .catch((err) => {
+                    console.error("EmailJS Error:", err);
+                    submitBtn.innerText = "ERROR: RETRY";
+                    submitBtn.style.backgroundColor = "#dc3545";
+                    submitBtn.disabled = false;
+                });
+        });
+    }
+});
 
 // 3. START EVERYTHING
 document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
-    initApplicationForm();
-
 });

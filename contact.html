@@ -28,47 +28,36 @@
         <p>Step onto the pitch with <strong>Executives de Bas</strong>.</p>
     </header>
 
-    <main class="container">
-        <div class="contact-wrapper">
-            <section class="form-section">
-                <h2 class="section-title">Membership Application</h2>
-                <form id="contact-form" class="blaze-form">
-                    <div class="input-group">
-                        <input type="text" id="fullName" placeholder="Full Name" required>
-                        <input type="email" id="email" placeholder="Email Address" required>
-                    </div>
-                    
-                    <select id="position" required>
-                        <option value="" disabled selected>Preferred Position</option>
-                        <option value="forward">Forward</option>
-                        <option value="midfield">Midfield</option>
-                        <option value="defense">Defense</option>
-                        <option value="keeper">Goalkeeper</option>
-                        <option value="fan">Supporter / Non-Player</option>
-                    </select>
+  <section class="application-container">
+    <h2>Membership Application</h2>
+    <form id="contact-form">
+        <div class="input-group">
+            <input type="text" name="from_name" id="user_name" placeholder="Full Name" required>
+            <input type="email" name="reply_to" id="user_email" placeholder="Email Address" required>
+        </div>
 
-                    <textarea id="message" placeholder="Why do you want to join Blaze All Stars?" rows="4"></textarea>
+        <div class="input-group">
+            <select name="position" id="position" required>
+                <option value="" disabled selected>Preferred Position</option>
+                <option value="Forward">Forward</option>
+                <option value="Midfield">Midfield</option>
+                <option value="Defense">Defense</option>
+                <option value="Goalkeeper">Goalkeeper</option>
+            </select>
+        </div>
 
-                    <div class="pledge-box">
-                        <h3>The Brother's Keeper Pledge</h3>
-                        <p>To join, you must agree to our 3 Golden Rules:</p>
-                        <label class="checkbox-label">
-                            <input id="rule1" type="checkbox" class="pledge-check" data-rule="Respect" required> 
-                            I will show <strong>Respect</strong> for one another.
-                        </label>
-                        <label class="checkbox-label">
-                            <input id="rule2" type="checkbox" class="pledge-check" data-rule="Fair Play" required> 
-                            I will uphold the spirit of <strong>Fair Play</strong>.
-                        </label>
-                        <label class="checkbox-label">
-                            <input id="rule3" type="checkbox" class="pledge-check" data-rule="Keeper" required> 
-                            I will always <strong>Be My Brother's Keeper</strong>.
-                        </label>
-                    </div>
+        <textarea name="reason" id="reason" placeholder="Why do you want to join the Blaze?" required></textarea>
 
-                    <button type="submit" id="submitBtn" class="submit-disabled" disabled>SEND APPLICATION</button>
-                </form>
-            </section>
+        <div class="rules-box">
+            <h3>The Brother's Keeper Pledge</h3>
+            <label><input type="checkbox" class="pledge-check" required> I will show Respect for one another.</label>
+            <label><input type="checkbox" class="pledge-check" required> I will uphold the spirit of Fair Play.</label>
+            <label><input type="checkbox" class="pledge-check" required> I will always Be My Brother's Keeper.</label>
+        </div>
+
+        <button type="submit" id="submit-btn" disabled>SEND APPLICATION</button>
+    </form>
+ </section>
 
             <aside class="contact-info">
                 <div class="info-card">
