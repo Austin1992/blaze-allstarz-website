@@ -369,7 +369,7 @@ const executives = [
     { 
         name: "Kenneth Akawe", 
         title: "Welfare Officer", 
-        image: "" 
+        image: "images/keneth-Akawe.jpg" 
     },
     { 
         name: "Joseph Etim Inyang", 
@@ -389,7 +389,7 @@ const executives = [
      { 
         name: "Akojuru Augustine Ugochukwu", 
         title: "Asst. Welfare Officer", 
-        image: "" 
+        image: "images/Austin-Pablo.jpg" 
     },
     { 
         name: "Amadi Chile Saviour", 
@@ -407,21 +407,35 @@ const executives = [
         image: "" 
     },
     { 
-        name: "Bishop", 
-        title: "Patron", 
-        image: "" 
+        name: "Mr Simon Romanus Akawe", 
+        title: "Pioneer Chairman/Patron", 
+        image: "images/bishop.jpg" 
     },
     { 
-        name: "Edobor Isreal Idiake", 
-        title: "Grand Patron", 
-        image: "" 
+        name: "Mr Emeka Ebolem", 
+        title: "Chairman Emeritus/BOT Member", 
+        image: "images/Chairman-Emeritus.jpg" 
     },
-    { 
-        name: "Emeka", 
-        title: "Chairman Emeritus", 
-        image: "" 
-    },
-     
+     {
+        name: "Mr Umoh B. Adam",
+        title: "Board Of Trustee Member",
+        image: "images/elder-umoh.jpg"
+     },
+     {
+        name: "Mr Ekaette Umoren",
+        title: "Board Of Trustee Member",
+        image: ""
+     },
+     {
+        name: "HC. Damisa Mike",
+        title: "Board Of Trustee Member",
+        image: "images/national.jpg"
+     },
+     {
+        name: "Engr. Omidire Stephen",
+        title: "Board Of Trustee Member",
+        image: "images/baba-stevo.jpg"
+     },
 ];
 
 
@@ -503,7 +517,7 @@ if (homeShowcase) {
 }
 
 
-
+//contact page - emailjs form submission
  document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -522,3 +536,33 @@ if (homeShowcase) {
             btn.innerText = originalText;
         });
  });
+
+ //events page - countdown timer to next big match
+ function startMatchCountdown() {
+    const matchDate = new Date("April 25, 2026 16:00:00").getTime(); // 4:00 PM Kickoff
+
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = matchDate - now;
+
+        // Time calculations
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display results
+        document.getElementById("days").innerText = d;
+        document.getElementById("hours").innerText = h;
+        document.getElementById("minutes").innerText = m;
+        document.getElementById("seconds").innerText = s;
+
+        // If the match started
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("event-countdown").innerHTML = "<h2>MATCH DAY IS HERE! GO BLAZE!</h2>";
+        }
+    }, 1000);
+}
+
+startMatchCountdown();
