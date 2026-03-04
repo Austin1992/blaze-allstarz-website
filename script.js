@@ -538,43 +538,43 @@ if (homeShowcase) {
  });
 
 
- //countdown timer
+ 
+
  function startGlobalCountdown() {
-    const matchDate = new Date("2026-05-25T09:00:00").getTime();
+    // FORCE the date to April 25, 2026
+    const matchDate = new Date("2026-04-25T16:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
         const distance = matchDate - now;
 
-        // Math for 52 days
+        // CALCULATING THE 52 DAYS
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Debugging: This will show in your 'Inspect -> Console'
-        console.log("Days remaining:", d);
-
-        // Update the Event Page Box
-        const eventBox = document.getElementById("countdown-timer");
-        if (eventBox) {
-            eventBox.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
+        // UPDATE EVENTS PAGE (The single box)
+        const eventTimer = document.getElementById("countdown-timer");
+        if (eventTimer) {
+            eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
         }
 
-        // Update the Homepage Spans
-        const daysLabel = document.getElementById("days");
-        if (daysLabel) {
-            daysLabel.innerText = d;
+        // UPDATE HOMEPAGE (The individual spans)
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = d;
             document.getElementById("hours").innerText = h.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
             document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
         }
 
+        // STOP AT ZERO
         if (distance < 0) {
             clearInterval(timer);
-            if(eventBox) eventBox.innerText = "MATCH DAY!";
+            if(eventTimer) eventTimer.innerHTML = "MATCH DAY IS HERE!";
         }
     }, 1000);
 }
 
+// Fire the function as soon as the page loads
 document.addEventListener('DOMContentLoaded', startGlobalCountdown);
