@@ -368,12 +368,12 @@ const executives = [
     },
     { 
         name: "Mr Simon Romanus Akawe", 
-        title: "Pioneer Chairman/Patron", 
+        title: "Board Of Trustee Member", 
         image: "images/bishop.jpg" 
     },
     { 
         name: "Mr Emeka Ebolem", 
-        title: "Chairman Emeritus/BOT Member", 
+        title: "Board Of Trustee Member", 
         image: "images/Chairman-Emeritus.jpg" 
     },
      {

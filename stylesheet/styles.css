@@ -699,6 +699,12 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #222; margin-t
     font-family: 'Arial', sans-serif;
 }
 
+.membership {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-red);
+}
+
 #contact-form { display: flex; flex-direction: column; gap: 15px; }
 
 input, select, textarea {
@@ -806,8 +812,8 @@ input, select, textarea {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-start;
+    gap: 70px;
 }
 
 /* The Brother's Keeper Box */
