@@ -541,33 +541,28 @@ if (homeShowcase) {
  
  
 
-
-// Global Countdown Timer for the Event Page and Home Page Announcement Bar
+ // Global Countdown Logic (Used on both Homepage and Events Page)
  function startGlobalCountdown() {
-    // We use the full string "April 25, 2026". 
-    // The computer is smart enough to turn this into the correct number.
+    // This format is the most reliable for all browsers
     const matchDate = new Date("April 25, 2026 16:00:00").getTime();
 
     const timer = setInterval(function() {
-        // Today's date (March 4, 2026)
-        const now = new Date().getTime();
+        const now = new Date().getTime(); // Today: March 4
+        const distance = matchDate - now; // The Gap
 
-        // The Gap between Today and April 25
-        const distance = matchDate - now;
-
-        // The Math (1000ms * 60s * 60m * 24h = 1 day)
+        // Direct Math Logic
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Update the Event Page
+        // Update the Events Page Box
         const eventTimer = document.getElementById("countdown-timer");
         if (eventTimer) {
-            eventTimer.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
+            eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
         }
 
-        // Update the Home Page
+        // Update the Homepage Spans (wherever you moved them)
         if (document.getElementById("days")) {
             document.getElementById("days").innerText = d;
             document.getElementById("hours").innerText = h.toString().padStart(2, '0');
