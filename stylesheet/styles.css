@@ -807,7 +807,7 @@ input, select, textarea {
     border-radius: 4px;
 }
 
-.container {
+.container-fluid {
     padding: 60px 10%;
     display: flex;
     flex-wrap: wrap;
