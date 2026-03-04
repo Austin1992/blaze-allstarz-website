@@ -53,15 +53,15 @@
                         <h3>The Brother's Keeper Pledge</h3>
                         <p>To join, you must agree to our 3 Golden Rules:</p>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="pledge-check" data-rule="Respect"> 
+                            <input id="rule1" type="checkbox" class="pledge-check" data-rule="Respect" required> 
                             I will show <strong>Respect</strong> for one another.
                         </label>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="pledge-check" data-rule="Fair Play"> 
+                            <input id="rule2" type="checkbox" class="pledge-check" data-rule="Fair Play" required> 
                             I will uphold the spirit of <strong>Fair Play</strong>.
                         </label>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="pledge-check" data-rule="Keeper"> 
+                            <input id="rule3" type="checkbox" class="pledge-check" data-rule="Keeper" required> 
                             I will always <strong>Be My Brother's Keeper</strong>.
                         </label>
                     </div>
@@ -116,13 +116,13 @@
 
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-  <script type="text/javascript">
+ <script type="text/javascript">
    (function(){
-      // Check if this looks like a random string of letters/numbers
+      // Replace with your actual Public Key from EmailJS Account tab
       emailjs.init("6veIQaDrcDmKLx2gL"); 
    })();
  </script>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

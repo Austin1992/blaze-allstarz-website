@@ -510,34 +510,49 @@ function startCountdown() {
     }, 1000);
 }
 
-// 2. THE FORM (EmailJS)
- function handleForm() {
+
+ // 2. THE APPLICATION FORM (Validation + EmailJS)
+function initApplicationForm() {
     const contactForm = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
-    if (!contactForm || !btn) return; 
+
+    if (!contactForm || !btn) return;
 
     contactForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Change text and disable to prevent double-clicking
-        btn.innerText = 'Sending...';
-        btn.disabled = true; 
+        // 1. Check if all Golden Rules are checked
+        const rule1 = document.getElementById('rule1').checked;
+        const rule2 = document.getElementById('rule2').checked;
+        const rule3 = document.getElementById('rule3').checked;
 
+        if (!rule1 || !rule2 || !rule3) {
+            event.preventDefault();
+            alert("You must agree to all 3 Golden Rules to join the family!");
+            return;
+        }
+
+        event.preventDefault(); // Stop page refresh
+
+        // UI State
+        btn.disabled = true;
+        btn.innerText = 'SENDING...';
+
+        // 2. The EmailJS Send
         emailjs.sendForm('service_l32lavj', 'template_ylxh35f', this)
             .then(() => {
-                btn.innerText = 'Sent Successfully!';
-                btn.style.backgroundColor = '#28a745'; // Green for success
+                btn.innerText = 'APPLICATION SENT!';
+                btn.style.backgroundColor = '#28a745';
                 contactForm.reset();
-                // Optionally re-enable after 5 seconds
-                setTimeout(() => { 
-                    btn.disabled = false; 
-                    btn.innerText = 'Send Application';
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerText = 'SEND APPLICATION';
+                    btn.style.backgroundColor = '';
                 }, 5000);
             })
-            .catch((err) => {
-                btn.innerText = 'Try Again';
-                btn.disabled = false; // RE-ENABLE if it fails!
-                console.log("EmailJS Error:", err);
+            .catch((error) => {
+                btn.disabled = false;
+                btn.innerText = 'RETRY SEND';
+                btn.style.backgroundColor = '#dc3545';
+                console.error('EmailJS Error:', error);
             });
     });
 }
@@ -545,5 +560,6 @@ function startCountdown() {
 // 3. START EVERYTHING
 document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
-    handleForm();
+    initApplicationForm();
+
 });
