@@ -540,7 +540,7 @@ if (homeShowcase) {
 
  //countdown timer
  function startGlobalCountdown() {
-    const matchDate = new Date("2026-04-25T09:00:00").getTime();
+    const matchDate = new Date("2026-05-25T09:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
