@@ -538,3 +538,4 @@ if (homeShowcase) {
 }
 
 document.addEventListener('DOMContentLoaded', startGlobalCountdown);
+startGlobalCountdown(); // Call it immediately to avoid 1-second delay on page load
