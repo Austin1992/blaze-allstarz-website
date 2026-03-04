@@ -501,41 +501,45 @@ if (homeShowcase) {
  
  
 
- // Global Countdown Logic (Used on both Homepage and Events Page)
  function startGlobalCountdown() {
-    // This format is the most reliable for all browsers
+    // Force the date to April 25, 2026, at 4:00 PM
     const matchDate = new Date("April 25, 2026 16:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime(); // Today: March 4
-        const distance = matchDate - now; // The Gap
+        const distance = matchDate - now;
 
-        // Direct Math Logic
+        // If the date is invalid or passed, stop at 0
+        if (isNaN(distance) || distance < 0) {
+            clearInterval(timer);
+            return;
+        }
+
+        // The Math for 52 Days
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Update the Events Page Box
+        // UPDATE THE HOMEPAGE SPANS
+        // Check if the IDs exist before trying to change them
+        const dSpan = document.getElementById("days");
+        const hSpan = document.getElementById("hours");
+        const mSpan = document.getElementById("minutes");
+        const sSpan = document.getElementById("seconds");
+
+        if (dSpan) dSpan.innerText = d;
+        if (hSpan) hSpan.innerText = h.toString().padStart(2, '0');
+        if (mSpan) mSpan.innerText = m.toString().padStart(2, '0');
+        if (sSpan) sSpan.innerText = s.toString().padStart(2, '0');
+
+        // UPDATE THE EVENTS PAGE BOX
         const eventTimer = document.getElementById("countdown-timer");
         if (eventTimer) {
             eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
-        }
-
-        // Update the Homepage Spans (wherever you moved them)
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = d;
-            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
-        }
-
-        if (distance < 0) {
-            clearInterval(timer);
-            if(eventTimer) eventTimer.innerHTML = "MATCH DAY!";
         }
     }, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', startGlobalCountdown);
-startGlobalCountdown(); // Call it immediately to avoid 1-second delay on page load
+startGlobalCountdown(); // Start immediately on page load
