@@ -23,46 +23,6 @@ function initiateGreeting() {
 
 
 
-    // EVENTS PAGE - GALLERY INTERACTIONS 
-
-   // Blaze All Stars - Event Logic
- document.addEventListener('DOMContentLoaded', () => {
-    
-    // Set Target Date (example: 20 days from now)
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 20);
-
-    const updateCountdown = () => {
-        const now = new Date().getTime();
-        const difference = targetDate - now;
-
-        // Calculations
-        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-
-        // Update DOM
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minsEl = document.getElementById('minutes');
-
-        if (daysEl) {
-            daysEl.innerText = d.toString().padStart(2, '0');
-            hoursEl.innerText = h.toString().padStart(2, '0');
-            minsEl.innerText = m.toString().padStart(2, '0');
-        }
-
-        if (difference < 0) {
-            document.getElementById('countdown-timer').innerHTML = "<h3>IT'S MATCH DAY!</h3>";
-        }
-    };
-
-    // Run every minute (seconds not needed for clean UI, but can be added)
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-});
-
-
 
 
 // Function to highlight active page in Navbar
