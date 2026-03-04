@@ -300,6 +300,26 @@ nav {
     margin-top: 20px;
 }
 
+.match-highlight-section {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/pitch-bg.jpg');
+    background-size: cover;
+    color: #ffcc00; /* Blaze Gold */
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 3px solid #ffcc00;
+    border-bottom: 3px solid #ffcc00;
+}
+
+#days, #hours, #minutes, #seconds {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    background: #cc0000; /* Blaze Red */
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
 .time-block span { display: block; font-size: 3rem; font-family: 'Oswald'; color: var(--primary-red); }
 
 footer { text-align: center; padding: 40px; border-top: 1px solid #222; margin-top: 40px; }

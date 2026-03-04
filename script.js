@@ -582,3 +582,4 @@ if (homeShowcase) {
 
 // Ensure it fires on every page load
 document.addEventListener('DOMContentLoaded', startGlobalCountdown);
+startGlobalCountdown();
