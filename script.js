@@ -537,34 +537,38 @@ if (homeShowcase) {
         });
  });
 
- //events page - countdown timer to next big match
+
+//events page - countdown timer to the big match
  function startMatchCountdown() {
-    const matchDate = new Date("April 25, 2026 16:00:00").getTime(); // 4:00 PM Kickoff
+    // Set the date for the big game
+    const matchDate = new Date("April 25, 2026 16:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
         const distance = matchDate - now;
 
-        // Time calculations
+        // Time calculations for days, hours, mins, secs
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display results
-        document.getElementById("days").innerText = d;
-        document.getElementById("hours").innerText = h;
-        document.getElementById("minutes").innerText = m;
-        document.getElementById("seconds").innerText = s;
+        // Update the HTML spans
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = d.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+        }
 
-        // If the match started
+        // If the countdown is finished
         if (distance < 0) {
             clearInterval(timer);
-            document.getElementById("event-countdown").innerHTML = "<h2>MATCH DAY IS HERE! GO BLAZE!</h2>";
+            const container = document.querySelector('.countdown-container');
+            if(container) container.innerHTML = "<h2>MATCH DAY IS HERE!</h2>";
         }
     }, 1000);
 }
 
+// IMPORTANT: You must call the function here!
 startMatchCountdown();
-
-initMatchTimer();
