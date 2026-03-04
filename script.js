@@ -539,42 +539,45 @@ if (homeShowcase) {
 
 
  
-
+ //events page - global countdown timer logic
  function startGlobalCountdown() {
-    // FORCE the date to April 25, 2026
-    const matchDate = new Date("2026-04-25T16:00:00").getTime();
+    // 1. SPECIFY THE TARGET: April 25, 2026 at 9:00 AM (09:00)
+    const matchDate = new Date("2026-04-25T09:00:00").getTime();
 
     const timer = setInterval(function() {
+        // 2. SPECIFY TODAY: This gets March 4, 2026 (Right Now)
         const now = new Date().getTime();
+
+        // 3. THE CALCULATION: Target minus Today
         const distance = matchDate - now;
 
-        // CALCULATING THE 52 DAYS
+        // 4. CONVERT MILLISECONDS TO DAYS/HOURS/MINS
+        // Math.floor rounds down to the nearest whole number
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // UPDATE EVENTS PAGE (The single box)
+        // 5. INJECT INTO HTML
         const eventTimer = document.getElementById("countdown-timer");
         if (eventTimer) {
             eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
         }
 
-        // UPDATE HOMEPAGE (The individual spans)
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = d;
+        const daysSpan = document.getElementById("days");
+        if (daysSpan) {
+            daysSpan.innerText = d;
             document.getElementById("hours").innerText = h.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
             document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
         }
 
-        // STOP AT ZERO
+        // Stop the timer when we reach the date
         if (distance < 0) {
             clearInterval(timer);
-            if(eventTimer) eventTimer.innerHTML = "MATCH DAY IS HERE!";
+            if(eventTimer) eventTimer.innerHTML = "MATCH DAY!";
         }
     }, 1000);
 }
 
-// Fire the function as soon as the page loads
 document.addEventListener('DOMContentLoaded', startGlobalCountdown);
