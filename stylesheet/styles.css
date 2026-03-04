@@ -801,6 +801,15 @@ input, select, textarea {
     border-radius: 4px;
 }
 
+.container {
+    padding: 60px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
 /* The Brother's Keeper Box */
 .rules-box {
     background: #222;
