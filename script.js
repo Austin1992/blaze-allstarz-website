@@ -541,41 +541,44 @@ if (homeShowcase) {
 
  // Global Countdown Timer for the Big Match (Works on both Home and Events pages)
  function startGlobalCountdown() {
-    const matchDate = new Date("April 25, 2026 16:00:00").getTime();
+    // ISO Format is the most reliable: YYYY-MM-DD
+    // This ensures every browser sees April 25, 2026, 4:00 PM
+    const matchDate = new Date("2026-04-25T16:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
         const distance = matchDate - now;
+
+        // If the date has passed
+        if (distance < 0) {
+            clearInterval(timer);
+            const display = document.getElementById("countdown-timer");
+            if (display) display.innerHTML = "MATCH DAY!";
+            return;
+        }
 
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Format the time string
-        const timeString = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
-
-        // FIX 1: Update the single 'countdown-timer' box (for Events page)
-        const mainTimer = document.getElementById("countdown-timer");
-        if (mainTimer) {
-            mainTimer.innerText = timeString;
+        // Update Event Page (The single box)
+        const eventTimer = document.getElementById("countdown-timer");
+        if (eventTimer) {
+            eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
         }
 
-        // FIX 2: Update the individual spans (for Home page)
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = d;
+        // Update Home Page (The individual spans)
+        // We check if "days" exists first to avoid errors
+        const daysSpan = document.getElementById("days");
+        if (daysSpan) {
+            daysSpan.innerText = d;
             document.getElementById("hours").innerText = h.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
             document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
         }
-
-        if (distance < 0) {
-            clearInterval(timer);
-            if (mainTimer) mainTimer.innerHTML = "MATCH DAY!";
-        }
     }, 1000);
 }
 
-// Make sure this is at the bottom of script.js
+// Ensure it fires on every page load
 document.addEventListener('DOMContentLoaded', startGlobalCountdown);
-startGlobalCountdown();
