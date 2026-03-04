@@ -482,7 +482,7 @@ if (homeShowcase) {
 
  // 1. THE COUNTDOWN (Works for Home & Events)
 function startCountdown() {
-    const targetDate = new Date("April 25, 2026 16:00:00").getTime();
+    const targetDate = new Date("April 25, 2026 09:00:00").getTime();
     
     setInterval(() => {
         const now = new Date().getTime();
@@ -511,24 +511,33 @@ function startCountdown() {
 }
 
 // 2. THE FORM (EmailJS)
-function handleForm() {
+ function handleForm() {
     const contactForm = document.getElementById('contact-form');
-    if (!contactForm) return; 
+    const btn = document.getElementById('submit-btn');
+    if (!contactForm || !btn) return; 
 
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        const btn = document.getElementById('submit-btn');
+        
+        // Change text and disable to prevent double-clicking
         btn.innerText = 'Sending...';
+        btn.disabled = true; 
 
-        // DOUBLE CHECK YOUR IDs HERE
         emailjs.sendForm('service_l32lavj', 'template_ylxh35f', this)
             .then(() => {
                 btn.innerText = 'Sent Successfully!';
+                btn.style.backgroundColor = '#28a745'; // Green for success
                 contactForm.reset();
+                // Optionally re-enable after 5 seconds
+                setTimeout(() => { 
+                    btn.disabled = false; 
+                    btn.innerText = 'Send Application';
+                }, 5000);
             })
             .catch((err) => {
-                btn.innerText = 'Send Failed';
-                console.log("Error details:", err);
+                btn.innerText = 'Try Again';
+                btn.disabled = false; // RE-ENABLE if it fails!
+                console.log("EmailJS Error:", err);
             });
     });
 }
