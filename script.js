@@ -539,40 +539,42 @@ if (homeShowcase) {
 
 
  
- //events page - global countdown timer logic
+ 
+
+
+// Global Countdown Timer for the Event Page and Home Page Announcement Bar
  function startGlobalCountdown() {
-    // 1. SPECIFY THE TARGET: April 25, 2026 at 9:00 AM (09:00)
-    const matchDate = new Date("2026-04-25T09:00:00").getTime();
+    // We use the full string "April 25, 2026". 
+    // The computer is smart enough to turn this into the correct number.
+    const matchDate = new Date("April 25, 2026 16:00:00").getTime();
 
     const timer = setInterval(function() {
-        // 2. SPECIFY TODAY: This gets March 4, 2026 (Right Now)
+        // Today's date (March 4, 2026)
         const now = new Date().getTime();
 
-        // 3. THE CALCULATION: Target minus Today
+        // The Gap between Today and April 25
         const distance = matchDate - now;
 
-        // 4. CONVERT MILLISECONDS TO DAYS/HOURS/MINS
-        // Math.floor rounds down to the nearest whole number
+        // The Math (1000ms * 60s * 60m * 24h = 1 day)
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // 5. INJECT INTO HTML
+        // Update the Event Page
         const eventTimer = document.getElementById("countdown-timer");
         if (eventTimer) {
-            eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
+            eventTimer.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
         }
 
-        const daysSpan = document.getElementById("days");
-        if (daysSpan) {
-            daysSpan.innerText = d;
+        // Update the Home Page
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = d;
             document.getElementById("hours").innerText = h.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
             document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
         }
 
-        // Stop the timer when we reach the date
         if (distance < 0) {
             clearInterval(timer);
             if(eventTimer) eventTimer.innerHTML = "MATCH DAY!";
