@@ -477,68 +477,64 @@ if (homeShowcase) {
 }
 
 
-//contact page - emailjs form submission
- document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Show a "Sending..." state on the button
-    const btn = event.target.querySelector('button');
-    const originalText = btn.innerText;
-    btn.innerText = 'Sending...';
-
-    emailjs.sendForm('service_l32lavj', 'template_ylxh35f', this)
-        .then(function() {
-            alert('Message Sent Successfully! Blaze AllStarz will contact you soon.');
-            event.target.reset();
-            btn.innerText = originalText;
-        }, function(error) {
-            alert('Failed to send... please check your internet connection.');
-            btn.innerText = originalText;
-        });
- });
-
-
  
-  // Countdown Timer Logic for Both Homepage and Events Page
-  function startCountdown() {
-    // 1. Target Date: April 25, 2026
+  
+
+ // 1. THE COUNTDOWN (Works for Home & Events)
+function startCountdown() {
     const targetDate = new Date("April 25, 2026 16:00:00").getTime();
-
-    const updateTimer = setInterval(() => {
-        // 2. Current Time (Updated every second)
+    
+    setInterval(() => {
         const now = new Date().getTime();
+        const diff = targetDate - now;
 
-        // 3. The Math
-        const difference = targetDate - now;
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-        // Time calculations for days, hours, minutes and seconds
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        // 4. Updating the Homepage (Individual spans)
+        // HOMEPAGE UPDATE
         const dEl = document.getElementById("days");
         if (dEl) {
-            dEl.innerText = days;
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            dEl.innerText = d;
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
         }
 
-        // 5. Updating the Events Page (Single box)
+        // EVENTS PAGE UPDATE
         const eventEl = document.getElementById("countdown-timer");
         if (eventEl) {
-            eventEl.innerText = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
-        }
-
-        // If the countdown is finished
-        if (difference < 0) {
-            clearInterval(updateTimer);
-            if(eventEl) eventEl.innerText = "MATCH BEGUN!";
+            eventEl.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
         }
     }, 1000);
 }
 
-// Run the function as soon as the window loads
-window.onload = startCountdown;
+// 2. THE FORM (EmailJS)
+function handleForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return; 
+
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        btn.innerText = 'Sending...';
+
+        // DOUBLE CHECK YOUR IDs HERE
+        emailjs.sendForm('service_l32lavj', 'template_ylxh35f', this)
+            .then(() => {
+                btn.innerText = 'Sent Successfully!';
+                contactForm.reset();
+            })
+            .catch((err) => {
+                btn.innerText = 'Send Failed';
+                console.log("Error details:", err);
+            });
+    });
+}
+
+// 3. START EVERYTHING
+document.addEventListener('DOMContentLoaded', () => {
+    startCountdown();
+    handleForm();
+});
