@@ -539,39 +539,43 @@ if (homeShowcase) {
 
 
 
+ // Global Countdown Timer for the Big Match (Works on both Home and Events pages)
+ function startGlobalCountdown() {
+    const matchDate = new Date("April 25, 2026 16:00:00").getTime();
 
- // This waits for the page to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    function startMatchCountdown() {
-        const matchDate = new Date("April 25, 2026 16:00:00").getTime();
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = matchDate - now;
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = matchDate - now;
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-            if (distance < 0) {
-                clearInterval(timer);
-                const container = document.querySelector('.countdown-container');
-                if(container) container.innerHTML = "<h2>MATCH DAY IS HERE!</h2>";
-                return;
-            }
+        // Format the time string
+        const timeString = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
 
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
+        // FIX 1: Update the single 'countdown-timer' box (for Events page)
+        const mainTimer = document.getElementById("countdown-timer");
+        if (mainTimer) {
+            mainTimer.innerText = timeString;
+        }
 
-            // Using optional chaining to prevent errors if IDs are missing
-            document.getElementById("days")?.innerText = d.toString().padStart(2, '0');
-            document.getElementById("hours")?.innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes")?.innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds")?.innerText = s.toString().padStart(2, '0');
-            
-            // Log to console so you can see it working in 'Inspect'
-            console.log("Timer ticking...", d, h, m, s);
-        }, 1000);
-    }
+        // FIX 2: Update the individual spans (for Home page)
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+        }
 
-    startMatchCountdown();
-});
+        if (distance < 0) {
+            clearInterval(timer);
+            if (mainTimer) mainTimer.innerHTML = "MATCH DAY!";
+        }
+    }, 1000);
+}
+
+// Make sure this is at the bottom of script.js
+document.addEventListener('DOMContentLoaded', startGlobalCountdown);
+startGlobalCountdown();
