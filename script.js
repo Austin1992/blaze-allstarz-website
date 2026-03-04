@@ -538,48 +538,43 @@ if (homeShowcase) {
  });
 
 
-
- // Global Countdown Timer for the Big Match (Works on both Home and Events pages)
+ //countdown timer
  function startGlobalCountdown() {
-    // ISO Format is the most reliable: YYYY-MM-DD
-    // This ensures every browser sees April 25, 2026, 4:00 PM
-    const matchDate = new Date("2026-04-25T16:00:00").getTime();
+    const matchDate = new Date("2026-04-25T09:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
         const distance = matchDate - now;
 
-        // If the date has passed
-        if (distance < 0) {
-            clearInterval(timer);
-            const display = document.getElementById("countdown-timer");
-            if (display) display.innerHTML = "MATCH DAY!";
-            return;
-        }
-
+        // Math for 52 days
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Update Event Page (The single box)
-        const eventTimer = document.getElementById("countdown-timer");
-        if (eventTimer) {
-            eventTimer.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
+        // Debugging: This will show in your 'Inspect -> Console'
+        console.log("Days remaining:", d);
+
+        // Update the Event Page Box
+        const eventBox = document.getElementById("countdown-timer");
+        if (eventBox) {
+            eventBox.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
         }
 
-        // Update Home Page (The individual spans)
-        // We check if "days" exists first to avoid errors
-        const daysSpan = document.getElementById("days");
-        if (daysSpan) {
-            daysSpan.innerText = d;
+        // Update the Homepage Spans
+        const daysLabel = document.getElementById("days");
+        if (daysLabel) {
+            daysLabel.innerText = d;
             document.getElementById("hours").innerText = h.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
             document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
         }
+
+        if (distance < 0) {
+            clearInterval(timer);
+            if(eventBox) eventBox.innerText = "MATCH DAY!";
+        }
     }, 1000);
 }
 
-// Ensure it fires on every page load
 document.addEventListener('DOMContentLoaded', startGlobalCountdown);
-startGlobalCountdown();
