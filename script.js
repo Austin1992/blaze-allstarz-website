@@ -473,20 +473,19 @@ document.addEventListener('DOMContentLoaded', () => {
      },
 ];
 
-// Function to render executive cards based on category
+
+
+// Function to generate executive cards dynamically
 document.addEventListener('DOMContentLoaded', () => {
-    // Define the three target grids
     const grids = {
         elected: document.getElementById('electedGrid'),
         appointed: document.getElementById('appointedGrid'),
         bot: document.getElementById('botGrid')
     };
 
-    // Use the BAS logo as a fallback if image is missing
     const placeholder = "images/BAS-Logo.jpg";
 
     executives.forEach(member => {
-        // Find the right grid based on the member's category
         const targetGrid = grids[member.category];
         
         if (targetGrid) {
@@ -497,16 +496,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="member-image-container">
                     <img src="${member.image || placeholder}" alt="${member.name}" class="member-img">
                 </div>
-                <div class="member-info">
-                    <span class="member-role">${member.title}</span>
-                    <h4 class="member-name">${member.name}</h4>
-                </div>
+                <span class="member-role">${member.title}</span>
+                <h4 class="member-name">${member.name}</h4>
             `;
             targetGrid.appendChild(card);
         }
     });
 });
-
 
 
 
