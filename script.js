@@ -258,7 +258,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+function checkPledges() {
+    const submitBtn = document.getElementById('submit-btn');
+    
+    // SAFETY: If the button doesn't exist (like on the About page), stop the function.
+    if (!submitBtn) return; 
 
+    const checkboxes = document.querySelectorAll('.pledge-check');
+    const allChecked = Array.from(checkboxes).every(c => c.checked);
+    submitBtn.disabled = !allChecked;
+    submitBtn.style.opacity = allChecked ? "1" : "0.5";
+}
 //contact page - form validation and submission logic
 document.addEventListener('DOMContentLoaded', () => {
     const pledgeChecks = document.querySelectorAll('.pledge-check');
