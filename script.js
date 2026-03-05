@@ -295,135 +295,217 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //about page - dynamically generate executive cards
-document.addEventListener('DOMContentLoaded', () => {
-    const executiveGrid = document.getElementById('executiveGrid');
 
-    // 1. The Data: Simply add your 14+ names here
-
-   
-});
-
-
-const executives = [
+   // We can combine them into one array with a "category" field to differentiate
+  const executives = [
+    // 1. ELECTED EXECUTIVES 
     { 
-        name: "Edo Christopher Osazee", 
-        title: "Chairman", 
-        image: "images/chairman.jpg" // <-- Replace with your real filename
+      name: "Engr Edo Christopher", 
+      title: "President/Chairman", 
+      image: "images/chairman.jpg", 
+      category: "elected" 
     },
     { 
-        name: "Agwenede Peter Uwudia", 
-        title: "Vice Chairman", 
-        image: "" 
+        name: "Mr Peter A", 
+        title: "Vice President", 
+        image: "", 
+        category: "elected"
+     },
+    { 
+        name: "Mr Stanley Okonkwo",
+        title: "General Secretary", 
+        image: "images/General-Sec.jpg", 
+        category: "elected" 
     },
     { 
-        name: "Okonkwo Chigosim Stanley", 
-        title: "Secretary General", 
-        image: "images/General-Sec.jpg" 
-    },
-    // ... Repeat for all 14 members
-    { 
-        name: "Kenneth Okoroafor", 
+        name: "Mr Okoroafor Kenneth", 
         title: "Financial Secretary", 
-        image: "" // Leaving this empty will keep the BAS Logo as a placeholder
+        image: "", 
+        category: "elected" 
     },
     { 
-        name: "Kenneth Akawe", 
+        name: "Akawe Kenneth", 
         title: "Welfare Officer", 
-        image: "images/keneth-Akawe.jpg" 
+        image: "images/keneth-Akawe.jpg",
+        category: "elected"
     },
     { 
-        name: "Joseph Etim Inyang", 
+        name: "Mr Iyang Ramsey", 
         title: "Public Relations Officer/Media", 
-        image: "" 
+        image: "", 
+        category: "elected"
     },
     { 
-        name: "Kingsley Era Okojie", 
-        title: "DSS/Provost", 
-        image: "" 
+        name: "Mr Era Okojie", 
+        title: "Provost/DSS", 
+        image: "", 
+        category: "elected"
     },
-    { 
-        name: "Obinna Ositadinma Anatogu", 
+
+    // 2. APPOINTED EXECUTIVES   
+    {
+        name: "Mr Obinna Ositadinma Anatogu", 
         title: "Asst. DSS/Provost", 
-        image: "" 
+        image: "",
+        category: "appointed"
     },
      { 
-        name: "Akojuru Augustine Ugochukwu", 
-        title: "Asst. Welfare Officer", 
-        image: "images/Austin-Pablo.jpg" 
+        name: "Mr Akojuru Augustine Ugochukwu", 
+        title: "Tech Officer/Asst. Welfare Officer", 
+        image: "images/Austin-Pablo.jpg", 
+        category: "appointed"
     },
     { 
-        name: "Amadi Chile Saviour", 
-        title: "Coach", 
-        image: "" 
+        name: "MrAmadi Chile Saviour", 
+        title: "Coach/Curator", 
+        image: "", 
+        category: "appointed"
     },
     { 
-        name: "Edoboy", 
+        name: "Mr Agbale Clifford", 
         title: "Captain", 
-        image: "" 
+        image: "", 
+        category: "appointed"
     },
     { 
-        name: "Edobor Isreal Idiake", 
+        name: "Barr. Edobor Isreal Idiake", 
         title: "Legal Adviser", 
-        image: "" 
+        image: "", 
+        category: "appointed"
     },
     { 
-        name: "Mr Simon Romanus Akawe", 
-        title: "Board Of Trustee Member", 
-        image: "images/bishop.jpg" 
+        name: "Hon. Akawe Simon Romanus(JP)", 
+        title: "Pioneer Chairman/Patron", 
+        image: "images/bishop.jpg", 
+        category: "appointed"
     },
-    { 
-        name: "Mr Emeka Ebolem", 
-        title: "Board Of Trustee Member", 
-        image: "images/Chairman-Emeritus.jpg" 
-    },
-     {
-        name: "Mr Umoh B. Adam",
-        title: "Board Of Trustee Member",
-        image: "images/elder-umoh.jpg"
+    {
+        name: "Mr Ibrahim Mohammed",
+        title: "Asst. Coach",
+        image: "",
+        category: "appointed"
      },
      {
+        name: "Mr Nnachi Kingsley",
+        title: "Asst. Coach",
+        image: "images/nnachi.jpg",
+        category: "appointed"
+     },
+     {
+        name: "Mr Ahuchogu Chinagozim",
+        title: "Technical Adviser",
+        image: "",
+        category: "appointed"
+     },
+     {
+        name: "Chief Hon. Godspower Wadikom",
+        title: "Match Commissioner",
+        image: "",
+        category: "appointed"
+     },
+     {
+        name: "Ms Jennifer Nwogu",
+        title: "Welfare Support",
+        image: "images/baba-stevo.jpg",
+        category: "appointed"
+     },
+     {
+        name: "Mr Nnanna Victor",
+        title: "Asst. PRO/Media Support",
+        image: "images/baba-stevo.jpg",
+        category: "appointed"
+     },
+     {
+        name: "Mr Ighorodje Eseoghene Bright",
+        title: "Asst. Curator",
+        image: "images/baba-stevo.jpg",
+        category: "appointed"
+     },
+        {
+        name: "Mr Igwe Prince Ugochukwu",
+        title: "Chief Giration Officer",
+        image: "images/baba-stevo.jpg",
+        category: "appointed"
+     },
+      {
+        name: "Mr Pepple Erik",
+        title: "Club Saftey/Security Officer",
+        image: "images/baba-stevo.jpg",
+        category: "appointed"
+     },
+    {
+        name: "Mr Ezekwesili Alex",
+        title: "Diaspora Relations Officer",
+        image: "images/baba-stevo.jpg",
+        category: "appointed"
+     },
+
+    // 3. BOARD OF TRUSTEES
+    {
+        name: "Mr Umo B. Adam",
+        title: "Board Of Trustee (Chairman)",
+        image: "images/elder-umoh.jpg",
+        category: "bot"
+    },
+    {
         name: "Mr Ekaette Umoren",
         title: "Board Of Trustee Member",
-        image: ""
+        image: "",
+        category: "bot"
      },
-     {
+     { 
+        name: "Mr Emeka Ebolem", 
+        title: "Board Of Trustee Member",
+        image: "images/Chairman-Emeritus.jpg",
+        category: "bot"
+    },
+    {
         name: "HC. Damisa Mike",
         title: "Board Of Trustee Member",
-        image: "images/national.jpg"
+        image: "images/national.jpg",
+        category: "bot"
      },
      {
         name: "Engr. Omidire Stephen",
-        title: "Board Of Trustee Member",
-        image: "images/baba-stevo.jpg"
+        title: "Board Of Trustee (Secretary)",
+        image: "images/baba-stevo.jpg",
+        category: "bot"
      },
 ];
 
+// Function to render executive cards based on category
+document.addEventListener('DOMContentLoaded', () => {
+    // Define the three target grids
+    const grids = {
+        elected: document.getElementById('electedGrid'),
+        appointed: document.getElementById('appointedGrid'),
+        bot: document.getElementById('botGrid')
+    };
 
+    // Use the BAS logo as a fallback if image is missing
+    const placeholder = "images/BAS-Logo.jpg";
 
-const executiveGrid = document.getElementById('executiveGrid');
-
-if (executiveGrid) {
-    executives.forEach(person => {
-        const card = document.createElement('div');
-        card.className = 'leader-card';
+    executives.forEach(member => {
+        // Find the right grid based on the member's category
+        const targetGrid = grids[member.category];
         
-        // LOGIC: If 'person.image' is not empty, use it. Otherwise, use the BAS logo.
-        const photoSrc = person.image && person.image !== "" ? person.image : 'images/Executive-De-BAS.jpg';
-        
-        // Assign a class for styling (Real photos need to fill the circle, logos don't)
-        const imgClass = person.image ? 'profile-img' : 'placeholder-logo';
+        if (targetGrid) {
+            const card = document.createElement('div');
+            card.className = 'member-card';
 
-        card.innerHTML = `
-            <div class="profile-pic">
-                <img src="${photoSrc}" alt="${person.name}" class="${imgClass}">
-            </div>
-            <h3>${person.name}</h3>
-            <p>${person.title}</p>
-        `;
-        
-        executiveGrid.appendChild(card);
+            card.innerHTML = `
+                <div class="member-image-container">
+                    <img src="${member.image || placeholder}" alt="${member.name}" class="member-img">
+                </div>
+                <div class="member-info">
+                    <span class="member-role">${member.title}</span>
+                    <h4 class="member-name">${member.name}</h4>
+                </div>
+            `;
+            targetGrid.appendChild(card);
+        }
     });
-}
+});
 
 
 
