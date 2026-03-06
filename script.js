@@ -654,7 +654,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
+/*
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 const themeIcon = document.getElementById('theme-icon');
@@ -681,4 +681,4 @@ function switchTheme(e) {
     }    
 }
 
-toggleSwitch.addEventListener('change', switchTheme, false);
+toggleSwitch.addEventListener('change', switchTheme, false); */

@@ -819,7 +819,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #222; margin-t
 
 
 .application-container {
-    max-width: 600px;
+    max-width: 900px;
     margin: 2rem auto;
     padding: 20px;
     background: #1a1a1a;
@@ -2002,79 +2002,3 @@ input, select, textarea {
     box-shadow: 0 0 15px rgba(230, 34, 34, 0.2);
 }
 
-
-/* 1. Define Variables (Add at the very top of CSS) */
-:root {
-    --bg-color: #000000;
-    --card-bg: #111111;
-    --text-color: #ffffff;
-    --border-color: #333333;
-    --accent-red: #ff0000;
-    --accent-gold: #f39c12;
-}
-
-/* 2. Light Mode Overrides */
-[data-theme="light"] {
-    --bg-color: #f4f4f4;
-    --card-bg: #ffffff;
-    --text-color: #1a1a1a;
-    --border-color: #dddddd;
-}
-
-/* 3. Apply Variables to your Elements */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.event-card, .member-card, .form-container {
-    background-color: var(--card-bg);
-    border-color: var(--border-color);
-}
-
-/* Toggle Switch Styling */
-.theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    color: var(--text-color);
-}
-
-.theme-switch {
-    display: inline-block;
-    height: 24px;
-    position: relative;
-    width: 50px;
-}
-
-.theme-switch input { display: none; }
-
-.slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    background-color: #fff;
-    bottom: 4px;
-    content: "";
-    height: 16px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 16px;
-    border-radius: 50%;
-}
-
-input:checked + .slider { background-color: var(--accent-red); }
-input:checked + .slider:before { transform: translateX(26px); }
