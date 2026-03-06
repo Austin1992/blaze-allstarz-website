@@ -74,7 +74,7 @@
     {
         "id": 9,
         "title": "",
-        "url": "images/4.jpg",
+        "url": "images/B4.jpg",
         "desc": "",
         "date": "2026-03-10",
         "type": "image",
@@ -137,7 +137,7 @@
     {
         "id": 16,
         "title": "Anniversary",
-        "url": "video/BAS7YRS.mp4",
+        "url": "videos/BAS7YRS.mp4",
         "desc": "BAS 7 Years Anniversary",
         "date": "2026-03-10",
         "type": "video",
