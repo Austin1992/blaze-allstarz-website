@@ -655,7 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const scriptURL = 'https://script.google.com/macros/library/d/17cRitPBBDggqHCrCHPso5BTRAT4lReFxBcvplJd_GxnHdNrzKAWnOkeI/2'; // Replace with your URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbziDxIBGymXn7d-2ytuOlO7oS_z5K--JqOvzDkdaWdvaaJS9Fosp854Z09Ugl_ZGp4c/exec'; // Replace with your URL
 const form = document.forms['contact-form'];
 const btn = document.getElementById('submit-btn');
 
