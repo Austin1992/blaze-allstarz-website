@@ -424,6 +424,129 @@ nav {
     color: #aaa;
     cursor: default;
 }
+/* --- Event Section Theme --- */
+#events {
+    background-color: #000; /* Deep Black */
+    padding: 60px 20px;
+}
+
+.section-title {
+    color: #ff0000; /* Blaze Red */
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* --- The Event Card --- */
+.event-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff0000;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+}
+
+/* --- Left Side: Routine Info --- */
+.routine-info h3 {
+    color: #ff0000;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.routine-info p {
+    color: #fff;
+    margin: 10px 0;
+}
+
+.routine-info strong {
+    color: #f39c12; /* Blaze Gold for times */
+}
+
+/* --- Vertical Divider (The hr) --- */
+.event-card hr {
+    width: 2px;
+    height: 100px;
+    background-color: #f39c12; /* Gold Divider */
+    border: none;
+    margin: 0 30px;
+}
+
+/* --- Right Side: Countdown --- */
+.countdown-wrapper {
+    text-align: center;
+    flex: 1;
+}
+
+#event-name {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* --- THE TIMER (Matching your photo) --- */
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.time-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Red Boxes for Numbers */
+.time-block span {
+    background-color: #ff0000; /* Blaze Red */
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    padding: 8px 12px;
+    border-radius: 6px;
+    min-width: 55px;
+    display: inline-block;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Gold Labels */
+.time-block label {
+    color: #f39c12; /* Blaze Gold */
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+/* --- Responsive for Mobile --- */
+@media (max-width: 768px) {
+    .event-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .event-card hr {
+        width: 80%;
+        height: 2px;
+        margin: 30px auto;
+    }
+    .routine-info {
+        margin-bottom: 20px;
+    }
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {

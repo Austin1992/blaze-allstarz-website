@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
         category: "elected" 
     },
     { 
-        name: "Akawe Kenneth", 
+        name: "Mr Akawe Kenneth", 
         title: "Welfare Officer", 
         image: "images/keneth-Akawe.jpg",
         category: "elected"
