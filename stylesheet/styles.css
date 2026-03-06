@@ -630,6 +630,11 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #222; margin-t
 
 
 /* Contact Page Styles */
+#contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto
+}
 .contact-wrapper {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -1057,11 +1062,11 @@ input, select, textarea {
     align-items: center;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-    width: 240px;
+    width: 300px;
     padding: 20px;
     border-radius: 15px;
     background-color: black;
-    gap: 20px;
+    border-bottom: 3px solid #ff0000;
 }
 
 /* --- HOVER EFFECT --- */
@@ -1073,11 +1078,10 @@ input, select, textarea {
     border-color: #ff0000; /* Changes Gold border to Blaze Red on hover */
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.8); /* Intense Red Glow */
     transform: scale(1.1);
-    border-bottom: 2px solid #ff0000;
 }
 
 .member-card:hover .member-name {
-    color: #ffffff; /* Pops the name to white on hover */
+    color: var(--primary-red); /* Pops the name to white on hover */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 

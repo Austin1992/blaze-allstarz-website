@@ -318,11 +318,11 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
         name: "Mr Peter A", 
         title: "Vice President", 
-        image: "", 
+        image: "images/peter.jpg", 
         category: "elected"
      },
     { 
-        name: "Mr Stanley Okonkwo",
+        name: "Mr Stanley Chigosim Okonkwo",
         title: "General Secretary", 
         image: "images/General-Sec.jpg", 
         category: "elected" 
@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
         name: "Mr Okoroafor Kenneth", 
         title: "Financial Secretary", 
-        image: "", 
+        image: "images/kenneth-O.jpg", 
         category: "elected" 
     },
     { 
@@ -342,113 +342,114 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
         name: "Mr Iyang Ramsey", 
         title: "Public Relations Officer/Media", 
-        image: "", 
+        image: "images/ramsey.jpg", 
         category: "elected"
     },
     { 
         name: "Mr Era Okojie", 
         title: "Provost/DSS", 
-        image: "", 
+        image: "images/era.jpg", 
         category: "elected"
     },
 
-    // 2. APPOINTED EXECUTIVES   
-    {
-        name: "Mr Obinna Ositadinma Anatogu", 
-        title: "Asst. DSS/Provost", 
-        image: "",
-        category: "appointed"
-    },
-     { 
-        name: "Mr Akojuru Augustine Ugochukwu", 
-        title: "Tech Officer/Asst. Welfare Officer", 
-        image: "images/Austin-Pablo.jpg", 
-        category: "appointed"
-    },
-    { 
-        name: "MrAmadi Chile Saviour", 
-        title: "Coach/Curator", 
-        image: "", 
-        category: "appointed"
-    },
-    { 
-        name: "Mr Agbale Clifford", 
-        title: "Captain", 
-        image: "", 
-        category: "appointed"
-    },
-    { 
-        name: "Barr. Edobor Isreal Idiake", 
-        title: "Legal Adviser", 
-        image: "", 
-        category: "appointed"
-    },
+    // 2. APPOINTED EXECUTIVES  
     { 
         name: "Hon. Akawe Simon Romanus(JP)", 
         title: "Pioneer Chairman/Patron", 
         image: "images/bishop.jpg", 
         category: "appointed"
-    },
+    }, 
     {
-        name: "Mr Ibrahim Mohammed",
-        title: "Asst. Coach",
-        image: "",
-        category: "appointed"
-     },
-     {
-        name: "Mr Nnachi Kingsley",
-        title: "Asst. Coach",
-        image: "images/nnachi.jpg",
-        category: "appointed"
-     },
-     {
         name: "Mr Ahuchogu Chinagozim",
         title: "Technical Adviser",
-        image: "",
+        image: "images/motion.jpg",
         category: "appointed"
      },
      {
         name: "Chief Hon. Godspower Wadikom",
         title: "Match Commissioner",
+        image: "images/wadikom.jpg",
+        category: "appointed"
+     },
+     { 
+        name: "Barr. Edobor Isreal Idiake", 
+        title: "Legal Adviser", 
+        image: "images/dlaw.jpg", 
+        category: "appointed"
+    },
+    { 
+        name: "Mr Akojuru Augustine Ugochukwu", 
+        title: "Tech Officer/Asst. Welfare Officer", 
+        image: "images/Austin-Pablo.jpg", 
+        category: "appointed"
+    },
+    {
+        name: "Mr Ezekwesili Alex",
+        title: "Diaspora Relations Officer",
         image: "",
         category: "appointed"
      },
-     {
+     { 
+        name: "Mr Amadi Chile Saviour", 
+        title: "Coach/Curator", 
+        image: "images/chile.jpg", 
+        category: "appointed"
+    },
+    { 
+        name: "Mr Agbale Clifford", 
+        title: "Captain", 
+        image: "images/edoboy.jpg", 
+        category: "appointed"
+    },
+    {
         name: "Ms Jennifer Nwogu",
         title: "Welfare Support",
-        image: "images/baba-stevo.jpg",
+        image: "images/jennifer.jpg",
+        category: "appointed"
+     },
+    {
+        name: "Mr Nnachi Kingsley",
+        title: "Asst. Coach",
+        image: "images/lala.jpg",
+        category: "appointed"
+     },
+    {
+        name: "Mr Obinna Ositadinma Anatogu", 
+        title: "Asst. DSS/Provost", 
+        image: "images/pablo.jpg",
+        category: "appointed"
+    },
+    {
+        name: "Mr Ibrahim Mohammed",
+        title: "Asst. Coach",
+        image: "images/mikky.jpg",
         category: "appointed"
      },
      {
         name: "Mr Nnanna Victor",
         title: "Asst. PRO/Media Support",
-        image: "images/baba-stevo.jpg",
+        image: "images/nnanna.jpg",
         category: "appointed"
      },
      {
         name: "Mr Ighorodje Eseoghene Bright",
         title: "Asst. Curator",
-        image: "images/baba-stevo.jpg",
+        image: "images/ese.jpg",
         category: "appointed"
      },
-        {
+    {
         name: "Mr Igwe Prince Ugochukwu",
         title: "Chief Giration Officer",
-        image: "images/baba-stevo.jpg",
+        image: "images/perkings.jpg",
         category: "appointed"
      },
       {
         name: "Mr Pepple Erik",
         title: "Club Saftey/Security Officer",
-        image: "images/baba-stevo.jpg",
+        image: "images/erik.jpg",
         category: "appointed"
      },
-    {
-        name: "Mr Ezekwesili Alex",
-        title: "Diaspora Relations Officer",
-        image: "images/baba-stevo.jpg",
-        category: "appointed"
-     },
+    
 
     // 3. BOARD OF TRUSTEES
     {
@@ -466,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
      { 
         name: "Mr Emeka Ebolem", 
         title: "Board Of Trustee Member",
-        image: "images/Chairman-Emeritus.jpg",
+        image: "images/Chairman-emeritus.jpg",
         category: "bot"
     },
     {
