@@ -351,12 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     // 2. APPOINTED EXECUTIVES  
-    { 
-        name: "Hon. Akawe Simon Romanus(JP)", 
-        title: "Pioneer Chairman/Patron", 
-        image: "images/bishop.jpg", 
-        category: "appointed"
-    }, 
     {
         name: "Mr Ahuchogu Chinagozim",
         title: "Technical Adviser",
@@ -384,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
         name: "Mr Ezekwesili Alex",
         title: "Diaspora Relations Officer",
-        image: "",
+        image: "images/alex.jpg",
         category: "appointed"
      },
      { 
@@ -447,9 +441,28 @@ document.addEventListener('DOMContentLoaded', () => {
         image: "images/erik.jpg",
         category: "appointed"
      },
-    
+     {
+        name: "XXXXXXXXXXXXXXX",
+        title: "Medical Officer",
+        image: "",
+        category: "appointed"
+     },
 
-    // 3. BOARD OF TRUSTEES
+     // 3. PAST CHAIRMEN
+    { 
+        name: "Hon. Akawe Simon Romanus(JP)", 
+        title: "Pioneer Chairman/Patron", 
+        image: "images/bishop.jpg", 
+        category: "pastchairman"
+    }, 
+    { 
+        name: "Mr Emeka Ebolem", 
+        title: "Chairman Emeritus",
+        image: "images/chairman-emeritus.jpg",
+        category: "pastchairman"
+    },
+
+    // 4. BOARD OF TRUSTEES
     {
         name: "Mr Umo B. Adam",
         title: "Board Of Trustee (Chairman)",
@@ -459,7 +472,13 @@ document.addEventListener('DOMContentLoaded', () => {
     {
         name: "Mr Ekaette Umoren",
         title: "Board Of Trustee Member",
-        image: "",
+        image: "images/jeo.jpg",
+        category: "bot"
+     },
+    {
+        name: "HC. Damisa Mike",
+        title: "Board Of Trustee Member",
+        image: "images/national.jpg",
         category: "bot"
      },
      { 
@@ -468,12 +487,6 @@ document.addEventListener('DOMContentLoaded', () => {
         image: "images/chairman-emeritus.jpg",
         category: "bot"
     },
-    {
-        name: "HC. Damisa Mike",
-        title: "Board Of Trustee Member",
-        image: "images/national.jpg",
-        category: "bot"
-     },
      {
         name: "Engr. Omidire Stephen",
         title: "Board Of Trustee (Secretary)",
@@ -489,7 +502,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const grids = {
         elected: document.getElementById('electedGrid'),
         appointed: document.getElementById('appointedGrid'),
-        bot: document.getElementById('botGrid')
+        bot: document.getElementById('botGrid'),
+        pastchairman: document.getElementById('pastChairGrid')
     };
 
     const placeholder = "images/BAS-Logo.jpg";
