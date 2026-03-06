@@ -1060,6 +1060,8 @@ input, select, textarea {
     width: 240px;
     padding: 20px;
     border-radius: 15px;
+    background-color: black;
+    gap: 20px;
 }
 
 /* --- HOVER EFFECT --- */
@@ -1070,6 +1072,8 @@ input, select, textarea {
 .member-card:hover .member-image-container {
     border-color: #ff0000; /* Changes Gold border to Blaze Red on hover */
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.8); /* Intense Red Glow */
+    transform: scale(1.1);
+    border-bottom: 2px solid #ff0000;
 }
 
 .member-card:hover .member-name {
