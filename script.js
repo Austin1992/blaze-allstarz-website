@@ -467,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
      { 
         name: "Mr Emeka Ebolem", 
         title: "Board Of Trustee Member",
-        image: "images/Chairman-emeritus.jpg",
+        image: "images/chairman-emeritus.jpg",
         category: "bot"
     },
     {

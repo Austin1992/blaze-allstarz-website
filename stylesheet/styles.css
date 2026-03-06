@@ -816,8 +816,8 @@ input, select, textarea {
     padding: 60px 10%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     gap: 70px;
 }
 
