@@ -119,7 +119,8 @@ function publishContent() {
     }
 }
 
-// 2. RENDER ACTIVITIES (With "Live" Star Badge)
+
+// 2. RENDER ACTIVITIES (Clean Version: No Badge, No Delete Button)
 function renderActivities() {
     const container = document.getElementById('activitiesVault');
     if (!container) return;
@@ -127,22 +128,19 @@ function renderActivities() {
     container.innerHTML = activityVault.map(item => {
         const isVideo = item.type === 'video';
         
-        // STAR ICON FOR FEATURED CONTENT
-        const liveBadge = item.featured 
-            ? `<div class="live-badge" title="Live on Homepage">★ LIVE</div>` 
-            : '';
-
+        // Note: liveBadge logic and featured-border class removed for a cleaner look
         return `
-            <div class="activity-card ${item.featured ? 'featured-border' : ''}">
+            <div class="activity-card">
                 <div class="media-wrapper">
-                    ${liveBadge}
-                    ${isVideo ? `<video src="${item.url}" controls></video>` : `<img src="${item.url}" class="activity-media">`}
+                    ${isVideo 
+                        ? `<video src="${item.url}" controls></video>` 
+                        : `<img src="${item.url}" class="activity-media" alt="${item.title}">`
+                    }
                 </div>
                 <div class="activity-details">
                     <span class="activity-date">${item.date}</span>
                     <h3>${item.title}</h3>
                     <p>${item.desc}</p>
-                    <button onclick="deleteActivity(${item.id})" class="admin-delete-btn">Remove</button>
                 </div>
             </div>`;
     }).join('');
