@@ -320,9 +320,133 @@ nav {
     margin: 0 5px;
 }
 
+
+
+/* Section Header Styling */
+#events .section-title {
+    color: #ff0000; /* Blaze Red */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* Main Event Card */
+.event-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #111; /* Dark background */
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #fff;
+}
+
+/* --- HOVER EFFECT --- */
+.event-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+}
+
+/* Routine Info (Left Side) */
+.routine-info {
+    flex: 1;
+    text-align: left;
+}
+
+.routine-info h3 {
+    color: #ff0000;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.routine-info p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+.routine-info strong {
+    color: #f39c12; /* Blaze Gold for times */
+}
+
+/* Vertical Divider (The <hr> tag) */
+.event-card hr {
+    width: 2px;
+    height: 100px;
+    background-color: #444;
+    border: none;
+    margin: 0 40px;
+}
+
+/* Countdown Wrapper (Right Side) */
+.countdown-wrapper {
+    flex: 1.5;
+    text-align: center;
+}
+
+#event-name {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    color: #eee;
+}
+
+/* Timer Blocks - Matching Homepage Style */
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.time-block {
+    background: #222;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-bottom: 3px solid #ff0000; /* Red Blaze bottom border */
+    min-width: 75px;
+}
+
+.time-block span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f39c12; /* Gold numbers */
+}
+
+.time-block label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #aaa;
+    cursor: default;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .event-card {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .event-card hr {
+        width: 80%;
+        height: 2px;
+        margin: 30px auto;
+    }
+
+    .routine-info {
+        text-align: center;
+    }
+}
+
 .time-block span { display: block; font-size: 3rem; font-family: 'Oswald'; color: var(--primary-red); }
 
 footer { text-align: center; padding: 40px; border-top: 1px solid #222; margin-top: 40px; }
+
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -1877,3 +2001,80 @@ input, select, textarea {
     border: 1px solid rgba(230, 34, 34, 0.6);
     box-shadow: 0 0 15px rgba(230, 34, 34, 0.2);
 }
+
+
+/* 1. Define Variables (Add at the very top of CSS) */
+:root {
+    --bg-color: #000000;
+    --card-bg: #111111;
+    --text-color: #ffffff;
+    --border-color: #333333;
+    --accent-red: #ff0000;
+    --accent-gold: #f39c12;
+}
+
+/* 2. Light Mode Overrides */
+[data-theme="light"] {
+    --bg-color: #f4f4f4;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --border-color: #dddddd;
+}
+
+/* 3. Apply Variables to your Elements */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.event-card, .member-card, .form-container {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+/* Toggle Switch Styling */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+    border-radius: 50%;
+}
+
+input:checked + .slider { background-color: var(--accent-red); }
+input:checked + .slider:before { transform: translateX(26px); }
