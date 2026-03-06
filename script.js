@@ -654,6 +654,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+const scriptURL = 'https://script.google.com/macros/library/d/17cRitPBBDggqHCrCHPso5BTRAT4lReFxBcvplJd_GxnHdNrzKAWnOkeI/2'; // Replace with your URL
+const form = document.forms['contact-form'];
+const btn = document.getElementById('submit-btn');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  
+  // Visual feedback: disable button so they don't click twice
+  btn.disabled = true;
+  btn.innerText = "Registering...";
+  btn.style.backgroundColor = "#555";
+
+  fetch(scriptURL, { 
+    method: 'POST', 
+    body: new FormData(form)
+  })
+  .then(response => {
+      // Success feedback
+      alert("Success! You are now in the Blaze AllStarz Database.");
+      btn.innerText = "APPLICATION SENT";
+      btn.style.backgroundColor = "#28a745"; // Success Green
+      form.reset();
+  })
+  .catch(error => {
+      // Error feedback
+      console.error('Error!', error.message);
+      alert("Something went wrong. Please try again.");
+      btn.disabled = false;
+      btn.innerText = "SEND APPLICATION";
+  });
+});
+
+
 /*
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
