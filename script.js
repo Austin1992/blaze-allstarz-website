@@ -314,8 +314,8 @@ document.addEventListener('DOMContentLoaded', () => {
       category: "elected" 
     },
     { 
-        name: "Mr Peter A", 
-        title: "Vice President", 
+        name: "Mr Peter Agwinede", 
+        title: "Vice President/Vice Chairman", 
         image: "images/peter.jpg", 
         category: "elected"
      },

@@ -2125,3 +2125,65 @@ input, select, textarea {
     box-shadow: 0 0 15px rgba(230, 34, 34, 0.2);
 }
 
+
+/* sponsorship style */
+.tier-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tier-card {
+    background: #111;
+    border: 1px solid #333;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tier-card:hover {
+    transform: translateY(-15px);
+    border-color: #ff0000;
+}
+
+.gold-tier { border-top: 5px solid #f39c12; } /* Gold Accent */
+.silver-tier { border-top: 5px solid #bdc3c7; } /* Silver Accent */
+.bronze-tier { border-top: 5px solid #cd7f32; } /* Bronze Accent */
+
+.tier-icon { font-size: 3rem; margin-bottom: 20px; }
+
+.tier-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    text-align: left;
+    color: #ccc;
+}
+
+.tier-benefits li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.tier-benefits li::before {
+    content: '✓';
+    color: #ff0000;
+    position: absolute;
+    left: 0;
+}
+
+.btn-blaze {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ff0000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
