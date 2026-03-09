@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
         name: "Mr Stanley Chigosim Okonkwo",
         title: "General Secretary", 
-        image: "images/General-Sec.jpg", 
+        image: "images/simboy.jpg", 
         category: "elected" 
     },
     { 
