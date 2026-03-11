@@ -2244,7 +2244,8 @@ input, select, textarea {
 }
 
 .chairman-note span {
-    color: yellow;
+    color: gold;
+    font-weight: 800
 }
 
 .home-broadcast {
@@ -2257,7 +2258,7 @@ input, select, textarea {
 
 .broadcast-banner {
     background: var(--accent-color); /* Your club's primary color */
-    color: #000;
+    color: gold;
     padding: 10px 20px;
     font-weight: 800;
     text-transform: uppercase;
@@ -2405,7 +2406,7 @@ input, select, textarea {
     margin-top: 40px;
     text-align: right;
     font-style: italic;
-    color: yellow;
+    color: gold;
     border-top: 1px solid #222;
     padding-top: 20px;
 }
