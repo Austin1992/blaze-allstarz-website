@@ -2243,6 +2243,10 @@ input, select, textarea {
     color: var(--text-dim);
 }
 
+.chairman-note span {
+    color: yellow;
+}
+
 .home-broadcast {
     background: #000;
     border: 1px solid #333;
@@ -2290,7 +2294,7 @@ input, select, textarea {
 }
 
 .broadcast-card h4 { margin: 10px 0 5px 0; font-size: 1rem; }
-.broadcast-card p { font-size: 0.8rem; color: #777; }
+.broadcast-card p { font-size: 0.8rem; color: var(--primary-red); }
 
 @keyframes pulse {
     0% { transform: scale(0.95); opacity: 1; }
@@ -2315,6 +2319,15 @@ input, select, textarea {
     text-align: center;
     margin-bottom: 40px;
 }
+
+.itinerary-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
 
 .itinerary-list {
     display: flex;
@@ -2392,7 +2405,7 @@ input, select, textarea {
     margin-top: 40px;
     text-align: right;
     font-style: italic;
-    color: var(--text-dim);
+    color: yellow;
     border-top: 1px solid #222;
     padding-top: 20px;
 }
