@@ -2416,12 +2416,12 @@ input, select, textarea {
     font-weight: 800;
     font-size: 1.8rem;
     line-height: 1;
+    color: var(--primary-red);
 }
 
 .entry-date span {
     display: block;
     font-size: 0.9rem;
-    color: var(--accent-color);
     text-transform: uppercase;
 }
 
@@ -2432,8 +2432,8 @@ input, select, textarea {
     display: inline-block;
     margin-top: 15px;
     font-size: 0.75rem;
-    color: #555;
-    border: 1px solid #333;
+    color: var(--primary-red);
+    border: 1px solid var(--primary-red);
     padding: 3px 10px;
     border-radius: 20px;
 }
