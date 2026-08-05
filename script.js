@@ -583,11 +583,29 @@ if (homeShowcase) {
 
  // 1. THE COUNTDOWN (Works for Home & Events)
 function startCountdown() {
-    const targetDate = new Date("April 25, 2026 09:00:00").getTime();
+    // Updated Target Date: October 03, 2026 at 08:00:00 AM
+    const targetDate = new Date("October 3, 2026 08:00:00").getTime();
     
-    setInterval(() => {
+    const timerInterval = setInterval(() => {
         const now = new Date().getTime();
         const diff = targetDate - now;
+
+        if (diff <= 0) {
+            clearInterval(timerInterval);
+            // Handling countdown expiry
+            const dEl = document.getElementById("days");
+            if (dEl) {
+                dEl.innerText = "0";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+            const eventEl = document.getElementById("countdown-timer");
+            if (eventEl) {
+                eventEl.innerText = "0d : 00h : 00m : 00s";
+            }
+            return;
+        }
 
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -606,11 +624,12 @@ function startCountdown() {
         // EVENTS PAGE UPDATE
         const eventEl = document.getElementById("countdown-timer");
         if (eventEl) {
-            eventEl.innerText = `${d}d : ${h}h : ${m}m : ${s}s`;
+            // Note: If you want to keep the HTML structured boxes on the events page, 
+            // comment out the line below so it doesn't overwrite your .time-block divs.
+            eventEl.innerText = `${d}d : ${h.toString().padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}s`;
         }
     }, 1000);
 }
-
 
 // 2. Initialize the form logic on page load
 document.addEventListener('DOMContentLoaded', function() {
